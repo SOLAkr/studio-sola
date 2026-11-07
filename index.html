@@ -240,6 +240,18 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   .seq-title{font-size:48px !important}
 }
 
+/* phones & tablets: don't let the browser inflate text sizes (iOS landscape / Android font boosting) */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width: 760px){
+  .ch-panel{max-height:92dvh !important}
+}
+/* tablets, landscape phones and narrow windows (761–1149px): sections grow with their content
+   instead of overlapping the next one (wide desktop ≥1150px is untouched) */
+@media (min-width: 761px) and (max-width: 1149px){
+  section[data-rv]{height:auto !important}
+  .price-card{height:auto !important}
+}
+
 /* 첫 화면 인트로 (사진 1초 → 서서히 사라짐) */
 #intro{position:fixed;inset:0;z-index:2147483000;background:#0a0504 url(assets/intro.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease;touch-action:none}
 #intro.out{opacity:0}
