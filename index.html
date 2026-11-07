@@ -15,6 +15,7 @@
 <meta name="twitter:title" content="STUDIO SOLA">
 <meta name="twitter:image" content="https://studio-sola.netlify.app/assets/og-image.jpg">
 <link rel="icon" type="image/png" href="assets/55113c09e26beff616ef7f69cc83b96c.png">
+<link rel="preload" as="image" href="assets/intro.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
@@ -220,9 +221,32 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   .seq-title{font-size:48px !important}
 }
 
+/* 첫 화면 인트로 (사진 1초 → 서서히 사라짐) */
+#intro{position:fixed;inset:0;z-index:2147483000;background:#0a0504 url(assets/intro.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease;touch-action:none}
+#intro.out{opacity:0}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true"></div>
+<script>
+// 인트로: 사진이 뜬 뒤 1초 유지 → 0.6초 동안 서서히 투명해지며 사라짐. 떠 있는 동안 스크롤 막기.
+(function(){
+  var el=document.getElementById('intro'); if(!el) return;
+  var KEYS={32:1,33:1,34:1,35:1,36:1,37:1,38:1,39:1,40:1};
+  var lockY=null, done=false;
+  function stop(e){ if(!done){ e.preventDefault(); e.stopPropagation(); } }
+  function key(e){ if(!done && KEYS[e.keyCode]){ e.preventDefault(); e.stopPropagation(); } }
+  function hold(){ if(done) return; if(lockY===null){ lockY=window.scrollY; return; } if(window.scrollY!==lockY) window.scrollTo(0,lockY); }
+  var opt={passive:false,capture:true};
+  window.addEventListener('wheel',stop,opt); window.addEventListener('touchmove',stop,opt); window.addEventListener('keydown',key,true); window.addEventListener('scroll',hold,true);
+  function release(){ done=true; window.removeEventListener('wheel',stop,opt); window.removeEventListener('touchmove',stop,opt); window.removeEventListener('keydown',key,true); window.removeEventListener('scroll',hold,true); if(el.parentNode) el.parentNode.removeChild(el); }
+  var started=false;
+  function start(){ if(started) return; started=true; setTimeout(function(){ el.classList.add('out'); setTimeout(release,650); },1000); }
+  var img=new Image(); img.onload=start; img.onerror=start; img.src='assets/intro.jpg';
+  if(img.complete) start();
+  setTimeout(start,2500); // 사진이 늦게 오면 그래도 넘어가기
+})();
+</script>
 <div id="root"></div>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
 <script src="data/portfolio.js"></script>
