@@ -251,6 +251,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   section[data-rv]{height:auto !important}
   .price-card{height:auto !important}
 }
+@media (max-width: 760px){
+  /* 신청 양식: phones keep the shorter label column so the notes don't wrap into a narrow strip */
+  #apply div[style*="min-width: 104px"]{min-width:76px !important}
+}
 
 /* 첫 화면 인트로 (사진 1초 → 서서히 사라짐) */
 #intro{position:fixed;inset:0;z-index:2147483000;background:#0a0504 url(assets/intro.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease;touch-action:none}
