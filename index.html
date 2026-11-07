@@ -185,6 +185,15 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
 .vid-start:focus-visible{outline:2px solid #6898FF;outline-offset:-2px}
 .vid-play{transition:transform .25s,background .25s}
 
+/* 팝업 스크롤바: 팝업 색에 맞춘 어두운 톤 */
+.ch-panel{scrollbar-width:thin;scrollbar-color:#2A3042 transparent}
+.ch-panel::-webkit-scrollbar{width:10px}
+.ch-panel::-webkit-scrollbar-track{background:transparent;margin:18px 0}
+.ch-panel::-webkit-scrollbar-thumb{background:#2A3042;border-radius:999px;border:3px solid transparent;background-clip:padding-box}
+.ch-panel::-webkit-scrollbar-thumb:hover{background:#3A4260;background-clip:padding-box}
+.ch-panel::-webkit-scrollbar-button{display:none;height:0}
+.ch-panel::-webkit-scrollbar-corner{background:transparent}
+
 /* ---- phone layout (only below 760px wide; desktop is untouched) ---- */
 @media (max-width: 760px){
   .pg{word-break:keep-all}
