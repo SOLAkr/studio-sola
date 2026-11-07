@@ -69,10 +69,10 @@ window.PORTFOLIO = {
       "videos": [
         {"url":"https://www.youtube.com/watch?v=kOtsl42SU-0","title":"로블록스 유튜버가 현실에 존재한다면?ㅋㅋㅋㅋ","label":"2026.08.13."},
         {"url":"https://www.youtube.com/watch?v=BLXTKpnX2yM","title":"여동생이 99일을 하다 울었습니다.. 내 동생은 나만 울릴 수 있다!","label":"2026.05.14"},
-        {"url":"https://www.youtube.com/watch?v=r7bsSj4yeq4","title":"[라이벌] 여자 vs 남자 싸움의 승자는? (로블록스 강태풍)","label":"2026.05.24."},
+        {"url":"https://www.youtube.com/watch?v=r7bsSj4yeq4","title":"라이벌 여자 vs 남자 싸움의 승자는?","label":"2026.05.24."},
         {"url":"https://www.youtube.com/watch?v=_q6-M-By9qI","title":"로블록스 먹방 ASMR vs 현실 먹방 ASMR","label":"2026.07.16."},
-        {"url":"https://www.youtube.com/watch?v=MLcWmUjLnVk","title":"친구 몰래 무선 키보드로 장난쳤더니... 제대로 빡쳤습니다ㅋㅋㅋ (키보드탈출)","label":"2026.07.30."},
-        {"url":"https://www.youtube.com/watch?v=M6gn0qisZ8U","title":"로블록스2에 접속했습니다ㅋㅋㅋ 완전 신기한데?! (끝까지 보세요 마지막에 레전드ㄷㄷ)","label":"2026.08.21."},
+        {"url":"https://www.youtube.com/watch?v=MLcWmUjLnVk","title":"친구 몰래 무선 키보드로 장난쳤더니... 제대로 빡쳤습니다ㅋㅋㅋ","label":"2026.07.30."},
+        {"url":"https://www.youtube.com/watch?v=M6gn0qisZ8U","title":"로블록스2에 접속했습니다ㅋㅋㅋ 완전 신기한데?!","label":"2026.08.21."},
         {"url":"https://www.youtube.com/watch?v=69hq7AiRlaM","title":"실제로 일어난 충격적인 사건들을 로블록스에서 찾아봤습니다...","label":"2026.09.18."},
         {"url":"https://www.youtube.com/watch?v=WawvEWT5WMY","title":"로블록스에 북한 게임이 있다고?ㅋㅋㅋ 충격적이다ㅋㅋㅋㅋ","label":"2026.10.01."},
         {"url":"https://www.youtube.com/watch?v=ruIbiqRMoYs","title":"로블록스에서 1로벅스로 할 수 있는 것들","label":"2026.10.20."}
