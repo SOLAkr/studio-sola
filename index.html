@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STUDIO SOLA</title>
+<!-- 링크 미리보기(임베드): 제목 + 이미지만 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="STUDIO SOLA">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="STUDIO SOLA">
+<meta name="twitter:image" content="assets/og-image.jpg">
+<link rel="icon" type="image/png" href="assets/55113c09e26beff616ef7f69cc83b96c.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&amp;family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#020203}
+
+@font-face{font-family:'Pretendard';font-weight:300;font-style:normal;font-display:swap;src:url(assets/79ffeb8a28be3fd9595fe6666ee8173b.woff) format('woff')}
+@font-face{font-family:'Pretendard';font-weight:400;font-style:normal;font-display:swap;src:url(assets/28336ddfec560edf1f5bc9e67ae43631.woff) format('woff')}
+@font-face{font-family:'Pretendard';font-weight:500;font-style:normal;font-display:swap;src:url(assets/a6ff5c87db1b7c2f28d3670823e866bd.woff) format('woff')}
+@font-face{font-family:'Pretendard';font-weight:700;font-style:normal;font-display:swap;src:url(assets/ad64ad841b698958b3b2f449ade34d94.woff) format('woff')}
+@font-face{font-family:'Pretendard';font-weight:900;font-style:normal;font-display:swap;src:url(assets/f8d4f564e2270611b815f6522dfb18d8.woff) format('woff')}
+@font-face{font-family:'Paperlogy';font-weight:300;font-style:normal;font-display:swap;src:url(assets/8407cf3ef085da0b5ac933b72c273704.woff) format('woff')}
+@font-face{font-family:'Paperlogy';font-weight:400;font-style:normal;font-display:swap;src:url(assets/c3c81b4c2f3f5fb2357436ab9f1b7147.woff) format('woff')}
+@font-face{font-family:'Paperlogy';font-weight:500;font-style:normal;font-display:swap;src:url(assets/0ec7944a71cac7f704c9f0c7b5df510d.woff) format('woff')}
+@font-face{font-family:'Paperlogy';font-weight:600;font-style:normal;font-display:swap;src:url(assets/e0b9321e5bcd0117ba0313262f3fa624.woff) format('woff')}
+@font-face{font-family:'Paperlogy';font-weight:700;font-style:normal;font-display:swap;src:url(assets/accdbe0a81d9d1bf697dea29b1dc10b6.woff) format('woff')}
+@font-face{font-family:'Paperlogy';font-weight:800;font-style:normal;font-display:swap;src:url(assets/1cc4ac8cbbac81b0e03ce46adf189a29.woff) format('woff')}
+@font-face{font-family:'Paperlogy';font-weight:900;font-style:normal;font-display:swap;src:url(assets/252569bfd848f0aba62bfa601fc352b0.woff) format('woff')}
+@font-face{font-family:'KBL Jump Condensed';font-weight:100 900;font-style:normal;font-display:swap;src:url(assets/517ba43dd297e9d236e4ba19784609b1.woff) format('woff')}
+@font-face{font-family:'KBL Jump Extended';font-weight:100 900;font-style:normal;font-display:swap;src:url(assets/500abbdc871cbb475e620d440c78af37.woff) format('woff')}
+@font-face{font-family:'ONE Mobile Title';font-weight:100 900;font-style:normal;font-display:swap;src:url(assets/58bc4b11b08ca9f6b56a5f107b4bed11.woff) format('woff')}
+body{margin:0;background:#06070D}
+a{color:#8F9BFF}a:hover{color:#C3CAFF}
+.nav-a{color:#B7BCCC;text-decoration:none;transition:color .2s}
+.nav-a:hover{color:#FFFFFF}
+.nav-a.is-active{color:#FFFFFF}
+nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
+@media (prefers-reduced-motion: reduce){.nav-pill{transition:none !important}}
+.btn{transition:transform .2s, box-shadow .2s, filter .2s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.12)}
+.card{transition:transform .3s, border-color .3s}
+.card:hover{transform:translateY(-3px);border-color:rgba(143,155,255,0.35)}
+.f-in{width:100%;box-sizing:border-box;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:13px 16px;color:#ECEEF6;font-family:inherit;font-size:15px;min-height:48px;color-scheme:dark}
+.f-in:focus{outline:none;border-color:#8F9BFF;box-shadow:0 0 0 3px rgba(143,155,255,0.2)}
+.f-in::placeholder{color:#7A8096}
+.f-in option{background:#0D0F1A;color:#ECEEF6}
+@property --ring{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes ring-spin{to{--ring:360deg}}
+.ring-run{position:relative;isolation:isolate}
+/* Discord box outline light: runs clockwise along the rounded border at a constant speed.
+   Built from nested, overlapping dashes centred on the head, so the colour ramps smoothly with no seams. */
+.ring-svg{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);overflow:visible;pointer-events:none;z-index:1}
+.ring-svg rect{width:calc(100% - 2px);height:calc(100% - 2px);fill:none;stroke-width:2;stroke-linecap:butt;animation:ring-run 3.2s linear infinite}
+.ring-blur{filter:blur(5px);opacity:.6}
+.ring-blur rect{stroke-width:6}
+@media (prefers-reduced-motion: reduce){.ring-svg rect{animation:none}}
+@keyframes ring-run{from{stroke-dashoffset:0}to{stroke-dashoffset:-100}}
+.glow-ring{position:relative;isolation:isolate}
+.copy-card{color:#ECEEF6;transition:background .25s, transform .3s, border-color .3s}
+.copy-card:hover{background:rgba(255,255,255,0.075) !important}
+.copy-hint{color:#9AA0B4;transition:color .2s}
+.copy-card:hover .copy-hint{color:#ECEEF6}
+.copy-hint.done,.copy-card:hover .copy-hint.done{color:#7FE0A8}
+.copy-card:focus-visible{outline:2px solid #6898FF;outline-offset:3px}
+.copy-val{user-select:text;-webkit-user-select:text;font-family:inherit}
+.glow-ring::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;background:conic-gradient(from var(--ring), rgba(61,123,255,0) 0deg, rgba(61,123,255,0) 200deg, #3D7BFF 280deg, #A8DAFF 320deg, rgba(61,123,255,0) 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:ring-spin 3.2s linear infinite;pointer-events:none;z-index:-1}
+@media (prefers-reduced-motion: reduce){.glow-ring::before{animation:none}}
+@keyframes career-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-track{animation-name:career-scroll;animation-timing-function:linear;animation-iteration-count:infinite}
+.career-marquee:hover .marquee-track{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.marquee-track{animation-play-state:paused}}
+.reveal-line.l1{opacity:var(--r1,1);transform:translateY(calc((1 - var(--r1,1)) * 48px))}
+.reveal-line.l2{opacity:var(--r2,1);transform:translateY(calc((1 - var(--r2,1)) * 48px))}
+.price-card{transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s}
+.price-card:hover{background:linear-gradient(180deg, #141734, #0A0C18) padding-box, linear-gradient(160deg, #A9B3FF, rgba(143,155,255,0.15) 55%, rgba(61,214,224,0.5)) border-box !important;border-color:transparent !important;box-shadow:0 0 40px rgba(74,87,240,0.17) !important;transform:scale(1.03)}
+.rf-card{opacity:0;transform:translateX(-28px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+.rf-in .rf-card{opacity:1;transform:none}
+.rf-in .rf-card:nth-child(2){transition-delay:.15s}
+.rf-in .rf-card:nth-child(3){transition-delay:.3s}
+.rf-in .rf-card:nth-child(4){transition-delay:.45s}
+.rf-bar{transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.rf-in .rf-bar{transform:scaleX(1)}
+.rf-in .rf-card:nth-child(1) .rf-bar{transition-delay:.35s}
+.rf-in .rf-card:nth-child(2) .rf-bar{transition-delay:.5s}
+.rf-in .rf-card:nth-child(3) .rf-bar{transition-delay:.65s}
+.rf-in .rf-card:nth-child(4) .rf-bar{transition-delay:.8s}
+@media (prefers-reduced-motion: reduce){.rf-card,.rf-bar{transition:none}}
+@keyframes tl-sweep{from{left:0}to{left:calc(100% - 2px)}}
+.tl-playhead{cursor:grab}
+.tl-ruler{cursor:pointer;user-select:none;-webkit-user-select:none}
+@media (prefers-reduced-motion: reduce){.tl-playhead{animation:none}}
+@keyframes tl-hint{0%{left:0;opacity:0}30%{left:0;opacity:0;animation-timing-function:cubic-bezier(.35,.1,.4,1)}32%{opacity:.78}78%{left:calc(14.3% + 12px);opacity:0}100%{left:calc(14.3% + 12px);opacity:0}}
+@keyframes tl-hand-move{0%{left:0;opacity:1}30%{left:0;opacity:1;animation-timing-function:cubic-bezier(.35,.1,.4,1)}78%{left:calc(14.3% + 12px);opacity:0}100%{left:calc(14.3% + 12px);opacity:0}}
+@keyframes tl-hand{0%{opacity:0;transform:translate(16px,22px) scale(1)}14%{opacity:1;transform:translate(0,0) scale(1)}22%{opacity:1;transform:translate(0,0) scale(1)}28%{transform:translate(0,0) scale(.86)}100%{opacity:1;transform:translate(0,0) scale(.86)}}
+.tl-ghost{animation:tl-hint 3s linear infinite}
+.tl-handwrap{animation:tl-hand-move 3s linear infinite}
+.tl-hand{animation:tl-hand 3s ease-out infinite;transform-origin:8.4px 0}
+@media (prefers-reduced-motion: reduce){.tl-ghost,.tl-handwrap{display:none}}
+@keyframes seq-pop{0%{transform:scale(.8);opacity:.15}60%{opacity:1}100%{transform:scale(1);opacity:1}}
+.seq-title,.seq-desc{transform-origin:left center}
+.seq-pop .seq-title{animation:seq-pop .55s cubic-bezier(.2,.8,.25,1) both}
+.seq-pop .seq-desc{animation:seq-pop .55s cubic-bezier(.2,.8,.25,1) both}
+@media (prefers-reduced-motion: reduce){.seq-pop .seq-title,.seq-pop .seq-desc{animation:none}}
+.pf-fields > div{padding-right:32px}
+.pf-chip{height:38px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);color:#B7BCCC;font-family:Pretendard,sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .08s,border-color .08s,color .08s}
+.pf-chip:hover{border-color:rgba(110,180,255,0.45);color:#ECEEF6}
+.pf-chip.on{background:rgba(104,152,255,0.16);border-color:rgba(110,180,255,0.6);color:#FFFFFF}
+.pf-chip:focus-visible{outline:2px solid #6898FF;outline-offset:2px}
+[data-pf="chat"] .ch-card:not([data-tags~="chat"]),[data-pf="game"] .ch-card:not([data-tags~="game"]),[data-pf="mv"] .ch-card:not([data-tags~="mv"]){display:none !important}
+[data-pf="chat"] .pf-group:not(:has([data-tags~="chat"])),[data-pf="game"] .pf-group:not(:has([data-tags~="game"])),[data-pf="mv"] .pf-group:not(:has([data-tags~="mv"])){display:none}
+@keyframes pf-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+[data-pf] .ch-card{animation:pf-in .45s .14s cubic-bezier(.2,.8,.25,1) backwards}
+@media (prefers-reduced-motion: reduce){[data-pf] .ch-card{animation:none}}
+/* section entrance, like applying an effect in the editor: the section waits dim and desaturated (a raw clip);
+   a cursor drags an effect icon in from the right and drops it, then the section brightens to full colour */
+.sec-rv{position:relative}
+/* the "raw clip" look is a dim, desaturating veil over the section; once the effect is dropped,
+   a growing hole in the veil spreads the colour outward from the drop point */
+@property --rvr{syntax:'<length>';initial-value:0px;inherits:false}
+.sec-rv::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:rgba(6,7,12,.5);-webkit-backdrop-filter:grayscale(1) brightness(.62);backdrop-filter:grayscale(1) brightness(.62);--rvr:0px;-webkit-mask-image:radial-gradient(circle at 50% 230px, transparent max(0px, calc(var(--rvr) - 460px)), #000 var(--rvr));mask-image:radial-gradient(circle at 50% 230px, transparent max(0px, calc(var(--rvr) - 460px)), #000 var(--rvr))}
+.sec-rv.in::before{animation:rv-spread 1.3s cubic-bezier(.3,.5,.3,1) .5s forwards}
+.sec-rv.ready::before{visibility:hidden}
+@keyframes rv-spread{from{--rvr:0px}to{--rvr:2900px}}
+.rv-drag{position:absolute;left:50%;top:230px;width:0;height:0;z-index:6;pointer-events:none;opacity:0}
+.rv-fx{position:absolute;left:-20px;top:-17px;width:40px;height:35px;display:block;overflow:visible;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6)) drop-shadow(0 0 10px rgba(104,152,255,.35))}
+.rv-cur{position:absolute;left:4px;top:6px;width:20px;height:auto;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.55));transform-origin:0 0}
+.rv-drag::after{content:"";position:absolute;left:-34px;top:-34px;width:68px;height:68px;box-sizing:border-box;border-radius:50%;border:2px solid rgba(140,175,255,.85);opacity:0}
+.sec-rv.in .rv-drag{animation:rv-drag-move 1s cubic-bezier(.4,0,.25,1) both}
+.sec-rv.in .rv-fx{animation:rv-fx-drop 1s ease both}
+.sec-rv.in .rv-cur{animation:rv-cur-click 1s ease both}
+.sec-rv.in .rv-drag::after{animation:rv-drop-ring 1s ease-out both}
+@keyframes rv-drag-move{0%{opacity:0;transform:translate(150px,90px)}12%{opacity:1}48%{transform:translate(0,0)}80%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(10px,8px)}}
+@keyframes rv-fx-drop{0%,48%{opacity:1;transform:scale(1)}54%{opacity:1;transform:scale(.8)}62%,100%{opacity:0;transform:scale(.4)}}
+@keyframes rv-cur-click{0%,48%{transform:scale(1)}52%{transform:scale(.82)}58%,100%{transform:scale(1)}}
+@keyframes rv-drop-ring{0%,50%{opacity:0;transform:scale(.3)}55%{opacity:1}88%,100%{opacity:0;transform:scale(2.1)}}
+/* the section's own motions wait until the effect is applied */
+.sec-rv:not(.ready) .tl-ghost,.sec-rv:not(.ready) .tl-handwrap,.sec-rv:not(.ready) .tl-hand{animation-play-state:paused}
+/* ...and fade / speed up gently instead of popping on */
+.sec-rv .tl-ghost,.sec-rv .tl-handwrap{transition:filter .4s ease}
+.sec-rv:not(.ready) .tl-ghost,.sec-rv:not(.ready) .tl-handwrap{filter:opacity(0)}
+
+@media (prefers-reduced-motion: reduce){.sec-rv::before,.rv-drag{display:none}}
+/* background tone variant "거뭇하게": neutral near-black base, blue tints pulled back, soft vignette + film grain */
+.pg.tone-dark{background:#020203 !important}
+.tone-dark header{background:linear-gradient(180deg, rgba(2,2,3,0.94) 0%, rgba(2,2,3,0.66) 60%, rgba(2,2,3,0) 100%) !important}
+.tone-dark #works{background:linear-gradient(180deg, transparent, rgba(255,255,255,0.012) 50%, transparent) !important}
+.tone-dark .card{border-color:rgba(255,255,255,0.07)}
+.pg.tone-dark::before{content:"";position:fixed;inset:0;z-index:39;pointer-events:none;background:radial-gradient(130% 95% at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.5) 100%)}
+.pg.tone-dark::after{content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.075;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");background-size:220px 220px}
+@keyframes ch-fade{from{opacity:0}to{opacity:1}}
+@keyframes ch-in{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+.ch-overlay{animation:ch-fade .25s ease both}
+.ch-panel{animation:ch-in .38s cubic-bezier(.2,.8,.25,1) both}
+.ch-card{transition:transform .3s cubic-bezier(.2,.8,.25,1), border-color .3s, background .3s, box-shadow .3s}
+.ch-card:hover,.ch-card:focus-visible{transform:scale(1.04) !important;border-color:rgba(110,180,255,0.6) !important;background:rgba(255,255,255,0.075) !important;box-shadow:0 0 18px rgba(104,152,255,0.18)}
+.ch-card.cat-card{transition:transform .35s cubic-bezier(.2,.8,.25,1), box-shadow .35s cubic-bezier(.2,.8,.25,1), border-color .3s, filter .3s}
+.ch-card.cat-card:hover,.ch-card.cat-card:focus-visible{background:var(--cat-bg) !important;filter:brightness(1.18);transform:translate(-3px,-3px) !important;border-color:rgba(var(--cat-c),0.7) !important;box-shadow:3px 3px 0 rgba(var(--cat-c),0.3), 8px 10px 22px rgba(0,0,0,0.38) !important}
+@media (prefers-reduced-motion: reduce){.ch-card.cat-card:hover,.ch-card.cat-card:focus-visible{transform:none !important}}
+@media (prefers-reduced-motion: reduce){.ch-card:hover,.ch-card:focus-visible{transform:none !important}}
+.vid-thumb{transition:border-color .25s, box-shadow .25s}
+.vid-box{transition:background .25s, border-color .25s}
+a.vid-box:hover{background:rgba(255,255,255,0.06) !important;border-color:rgba(110,180,255,0.45) !important}
+a.vid-tile:hover .vid-thumb,a.vid-tile:focus-visible .vid-thumb{border-color:rgba(110,180,255,0.55);box-shadow:0 0 0 1px rgba(110,180,255,0.25)}
+.vid-play{transition:transform .25s, background .25s}
+a.vid-tile:hover .vid-play{transform:scale(1.08);background:rgba(104,152,255,0.55)}
+a.vid-tile:focus-visible{outline:2px solid #6898FF;outline-offset:4px}
+.ch-overlay.pv{position:absolute !important;inset:auto !important;top:0 !important;left:0 !important;right:0 !important;min-height:100%;align-items:flex-start !important;padding-top:40px !important}
+.ch-overlay.pv .ch-panel{max-height:none !important;overflow:visible !important}
+@media (prefers-reduced-motion: reduce){.ch-overlay,.ch-panel{animation:none}}
+
+/* ---- deploy build additions (portfolio player) ---- */
+button.vid-box{transition:background .25s,border-color .25s}
+button.vid-box:hover,button.vid-box:focus-visible{background:rgba(255,255,255,0.06) !important;border-color:rgba(110,180,255,0.45) !important}
+button.vid-tile:hover .vid-thumb,button.vid-tile:focus-visible .vid-thumb,.vid-start:hover ~ *{border-color:rgba(110,180,255,0.55)}
+button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08);background:rgba(104,152,255,0.6) !important}
+.vid-start:focus-visible{outline:2px solid #6898FF;outline-offset:-2px}
+.vid-play{transition:transform .25s,background .25s}
+
+/* ---- phone layout (only below 760px wide; desktop is untouched) ---- */
+@media (max-width: 760px){
+  .pg{word-break:keep-all}
+  header{padding:12px 16px !important}
+  header nav{display:none !important}
+  header .btn{padding:9px 14px !important;font-size:13px !important}
+  #top{padding:0 12px 72px !important;min-height:0 !important}
+  /* hero timeline ruler: every other timecode so they don't collide */
+  #top [style*="line-height: 14px"][style*="white-space: nowrap"] > span:nth-child(even){display:none}
+  section[data-rv]{height:auto !important;padding:72px 16px !important}
+  #contact{padding-bottom:40px !important}
+  /* track header rows */
+  section [style*="gap: 16px"][style*="letter-spacing: 0.08em"]{gap:10px !important;font-size:11px !important}
+  section [style*="gap: 16px"][style*="letter-spacing: 0.08em"] > span{white-space:nowrap}
+  section [style*="gap: 16px"][style*="letter-spacing: 0.08em"] > span:nth-child(2){overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}
+  /* portfolio: two channel cards per row */
+  .pf-ch{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important}
+  .pf-ch .ch-card{padding:20px 10px 18px !important;gap:10px !important}
+  .pf-ch .ch-card img,.pf-ch .ch-card > div[aria-hidden]{width:84px !important;height:84px !important}
+  .pf-ch .ch-card > div:nth-of-type(1){font-size:15px !important}
+  .pf-cat{gap:12px !important}
+  /* popup */
+  .ch-overlay{padding:10px !important;align-items:flex-end !important}
+  .ch-panel{padding:20px 16px !important;border-radius:20px !important;max-height:92vh !important}
+  .ch-panel .ch-head{gap:14px !important}
+  .ch-panel .ch-head img,.ch-panel .ch-head > div[aria-hidden]{width:56px !important;height:56px !important}
+  .ch-panel .ch-head > div:nth-of-type(1) > div:first-child{font-size:21px !important}
+  .ch-panel .ch-link{margin-left:0 !important}
+  .vid-box{padding:10px !important}
+  /* pricing cards: let them size to their content */
+  .price-card{height:auto !important}
+  /* process timeline: keep its proportions and scroll sideways */
+  div:has(> [style*="grid-template-columns: 44px repeat(7"]){overflow-x:auto;-webkit-overflow-scrolling:touch}
+  [style*="grid-template-columns: 44px repeat(7"]{min-width:640px}
+  .seq-title{font-size:48px !important}
+}
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
+<script src="data/portfolio.js"></script>
+<script src="app.js" defer></script>
+</body>
+</html>
