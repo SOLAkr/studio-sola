@@ -147,7 +147,7 @@ window.PORTFOLIO = {
       ]
     },
     {
-      "name": "MV • PV 작업물",
+      "name": "뮤직비디오 작업물",
       "desc": "MV · PV · MAD 편집",
       "icon": "music",
       "color": "#0A7285",
@@ -177,7 +177,9 @@ window.PORTFOLIO = {
 window.SITE_TEXT = {
   "texts": {
     "info.t48": "남성",
-    "info.t49": "군 여부"
+    "info.t49": "군 여부",
+    "price.t15": "Music video",
+    "price.t16": "MV • PV"
   },
   "styles": {},
   "lists": {}
