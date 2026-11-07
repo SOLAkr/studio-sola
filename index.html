@@ -176,6 +176,23 @@ a.vid-tile:focus-visible{outline:2px solid #6898FF;outline-offset:4px}
 .ch-overlay.pv{position:absolute !important;inset:auto !important;top:0 !important;left:0 !important;right:0 !important;min-height:100%;align-items:flex-start !important;padding-top:40px !important}
 .ch-overlay.pv .ch-panel{max-height:none !important;overflow:visible !important}
 @media (prefers-reduced-motion: reduce){.ch-overlay,.ch-panel{animation:none}}
+#sola-intro.out{opacity:0}
+/* 팝업 스크롤바: 팝업 색에 맞춘 어두운 톤 */
+.ch-panel{scrollbar-width:thin;scrollbar-color:#2A3042 transparent}
+.ch-panel::-webkit-scrollbar{width:10px}
+.ch-panel::-webkit-scrollbar-track{background:transparent;margin:18px 0}
+.ch-panel::-webkit-scrollbar-thumb{background:#2A3042;border-radius:999px;border:3px solid transparent;background-clip:padding-box}
+.ch-panel::-webkit-scrollbar-thumb:hover{background:#3A4260;background-clip:padding-box}
+.ch-panel::-webkit-scrollbar-button{display:none;height:0}
+.ch-panel::-webkit-scrollbar-corner{background:transparent}
+/* 사이트 전체 스크롤바: 배경(거의 검정)에 녹아드는 어두운 톤 */
+html{scrollbar-color:#2B2D35 #020203}
+html::-webkit-scrollbar{width:12px;background:#020203}
+html::-webkit-scrollbar-track{background:#020203}
+html::-webkit-scrollbar-thumb{background:#2B2D35;border-radius:999px;border:3px solid #020203}
+html::-webkit-scrollbar-thumb:hover{background:#3A3D4A}
+html::-webkit-scrollbar-button{display:none;height:0}
+html::-webkit-scrollbar-corner{background:#020203}
 
 /* ---- deploy build additions (portfolio player) ---- */
 button.vid-box{transition:background .25s,border-color .25s}
@@ -185,23 +202,6 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
 .vid-start:focus-visible{outline:2px solid #6898FF;outline-offset:-2px}
 .vid-play{transition:transform .25s,background .25s}
 
-/* 팝업 스크롤바: 팝업 색에 맞춘 어두운 톤 */
-.ch-panel{scrollbar-width:thin;scrollbar-color:#2A3042 transparent}
-.ch-panel::-webkit-scrollbar{width:10px}
-.ch-panel::-webkit-scrollbar-track{background:transparent;margin:18px 0}
-.ch-panel::-webkit-scrollbar-thumb{background:#2A3042;border-radius:999px;border:3px solid transparent;background-clip:padding-box}
-.ch-panel::-webkit-scrollbar-thumb:hover{background:#3A4260;background-clip:padding-box}
-.ch-panel::-webkit-scrollbar-button{display:none;height:0}
-.ch-panel::-webkit-scrollbar-corner{background:transparent}
-
-/* 사이트 전체 스크롤바: 배경(거의 검정)에 녹아드는 어두운 톤 */
-html{scrollbar-color:#2B2D35 #020203}
-html::-webkit-scrollbar{width:12px;background:#020203}
-html::-webkit-scrollbar-track{background:#020203}
-html::-webkit-scrollbar-thumb{background:#2B2D35;border-radius:999px;border:3px solid #020203}
-html::-webkit-scrollbar-thumb:hover{background:#3A3D4A}
-html::-webkit-scrollbar-button{display:none;height:0}
-html::-webkit-scrollbar-corner{background:#020203}
 
 /* ---- phone layout (only below 760px wide; desktop is untouched) ---- */
 @media (max-width: 760px){
