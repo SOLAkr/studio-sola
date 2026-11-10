@@ -102,6 +102,7 @@ window.PORTFOLIO = {
         {"url":"https://www.youtube.com/watch?v=KZvxh64NLj8","title":"\"자존심 강한 두 천재의 만남\"","label":"2026.10.18."},
         {"url":"https://www.youtube.com/watch?v=29HgI9NiGkw","title":"내가 왜 니네 관리자야.","label":"2026.08.22."},
         {"url":"https://www.youtube.com/watch?v=txSbS_708hg","title":"이렇게 하면 나오시는 거죠 군주님?","label":"2026.08.28."},
+        {"url":"https://youtu.be/gqEljL0UWRM?si=8obEsyNA4PwZuBaE","title":"\"무너진 세계 1위\"","label":"2026.11.09."},
         {"url":"https://www.youtube.com/shorts/wvjBEmFp3vs","title":"이렇게 무서워서 취직 하겠냐?","label":"2026.06.22."},
         {"url":"https://www.youtube.com/shorts/j96l2DTiiT4","title":"얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며","label":"2026.07.03."},
         {"url":"https://www.youtube.com/shorts/oDSiJExDgAU","title":"지금까지 로보토미 시리즈를 시청해주신 여러분들 감사드립니다.","label":"2026.07.09."},
@@ -182,5 +183,63 @@ window.SITE_TEXT = {
     "price.t16": "MV • PV"
   },
   "styles": {},
-  "lists": {}
+  "lists": {},
+  "career": [
+    {
+      "year": "",
+      "active": false,
+      "name": "요시요 아카데미 영상 공모전",
+      "link": "https://www.youtube.com/watch?v=Yeyl-Pyl0Hk",
+      "suffix": "",
+      "role": "1위"
+    },
+    {
+      "year": "2021~",
+      "active": true,
+      "name": "개인 유튜브",
+      "link": "",
+      "suffix": "",
+      "role": "메인 편집자"
+    },
+    {
+      "year": "2024",
+      "active": false,
+      "name": "채주노",
+      "link": "https://www.youtube.com/@JuNo_VLRT",
+      "suffix": " 유튜브",
+      "role": "메인 편집자"
+    },
+    {
+      "year": "2025 ~",
+      "active": true,
+      "name": "팔칠",
+      "link": "https://www.youtube.com/@%ED%8C%94%EC%B9%A0",
+      "suffix": " 유튜브",
+      "role": "외주 편집자"
+    },
+    {
+      "year": "2025 ~",
+      "active": true,
+      "name": "강태풍의 로블록스",
+      "link": "https://www.youtube.com/@%EA%B0%95%ED%83%9C%ED%92%8D%EB%A1%9C%EB%B8%94%EB%A1%9D%EC%8A%A4",
+      "suffix": " 유튜브",
+      "role": "메인 편집자"
+    },
+    {
+      "year": "2026",
+      "active": false,
+      "name": "코몽의 마인크래프트",
+      "link": "https://www.youtube.com/@%EC%BD%94%EB%AA%BD%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8/featured",
+      "suffix": " 유튜브",
+      "role": "메인 편집자"
+    },
+    {
+      "year": "2026 ~",
+      "active": true,
+      "name": "혀누",
+      "link": "https://www.youtube.com/@%ED%98%80%EB%88%84965",
+      "suffix": " 유튜브",
+      "role": "고정 편집자"
+    }
+  ]
 };
