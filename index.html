@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- the site is dark by design: tells phone browsers / in-app browsers not to auto-darken (invert) its colours -->
 <meta name="color-scheme" content="dark">
-<style>:root{color-scheme:dark}</style>
+<meta name="supported-color-schemes" content="dark">
+<style>:root{color-scheme:dark}@media (prefers-color-scheme: dark){:root{color-scheme:dark}}</style>
 <title>STUDIO SOLA</title>
 <!-- 링크 미리보기(임베드): 제목 + 이미지만 -->
 <meta property="og:type" content="website">
@@ -144,6 +145,9 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 /* contact headline fits any screen: below 1200px wide the PERFECT / VIDEO pair shrinks as one piece (--ctk, set by ctFit),
    the logo / line offsets shrink with it while their own size stays readable; on phones they sit above / below the words */
 .ct-head h2{zoom:var(--ctk, 1)}
+/* the words are painted as a fill clipped to the letters (same colour as their "color"), so phone browsers that
+   auto-darken pages don't flip these dark letters to white; their shadow is a drop-shadow for the same reason */
+.ct-head h2{background-image:linear-gradient(currentColor, currentColor);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @media (max-width: 760px){
   .ct-head .ct-ov{position:static !important;transform:none !important}
   .ct-head .ct-logo{order:-1;margin-bottom:18px}
@@ -464,7 +468,7 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js"></script>
-<script src="app.js" defer></script>
+<script src="data/portfolio.js?v=8da87fbe34"></script>
+<script src="app.js?v=8da87fbe34" defer></script>
 </body>
 </html>
