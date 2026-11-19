@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- the site is dark by design: tells phone browsers / in-app browsers not to auto-darken (invert) its colours -->
+<meta name="color-scheme" content="dark">
+<style>:root{color-scheme:dark}</style>
 <title>STUDIO SOLA</title>
 <!-- 링크 미리보기(임베드): 제목 + 이미지만 -->
 <meta property="og:type" content="website">
@@ -138,6 +141,19 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 @media (prefers-reduced-motion: reduce){.sec-rv .ct-rise,.sec-rv.in .ct-rise{opacity:1;animation:none}}
 /* the contact section skips the dim-veil / drag-and-drop reveal; it only uses the in-view state to (re)play the rise */
 #contact.sec-rv::before,#contact .rv-drag{display:none}
+/* contact headline fits any screen: below 1200px wide the PERFECT / VIDEO pair shrinks as one piece (--ctk, set by ctFit),
+   the logo / line offsets shrink with it while their own size stays readable; on phones they sit above / below the words */
+.ct-head h2{zoom:var(--ctk, 1)}
+@media (max-width: 760px){
+  .ct-head .ct-ov{position:static !important;transform:none !important}
+  .ct-head .ct-logo{order:-1;margin-bottom:18px}
+  .ct-head .ct-logo img{width:72px !important;height:auto !important}
+  .ct-head .ct-tag{margin-top:16px;font-size:15px !important;white-space:normal !important;text-align:center}
+}
+/* performance: looping motions stand still while their section is off screen (class set by animWatch) */
+.anim-off .marquee-track,.anim-off .ring-svg rect,.anim-off .tl-ghost,.anim-off .tl-handwrap,.anim-off .tl-hand{animation-play-state:paused !important}
+/* phones: no blue tap box on buttons / links */
+*{-webkit-tap-highlight-color:transparent}
 /* design edit canvas: keep everything risen (no entrance motion) */
 .dc-edit .ct-rise{opacity:1 !important;animation:none !important}
 /* the "raw clip" look is a dim, desaturating veil over the section; once the effect is dropped,
@@ -270,9 +286,10 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   /* main menu: same capsule as desktop, floating at the bottom centre of the screen (thumb reach) */
   header nav{position:fixed !important;left:50%;bottom:calc(14px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);
     flex-wrap:nowrap !important;gap:2px !important;padding:4px !important;max-width:calc(100vw - 20px);box-sizing:border-box;
-    background:rgba(11,12,18,0.88) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-    box-shadow:0 10px 28px rgba(0,0,0,0.55)}
+    background:rgba(11,12,18,0.95) !important;box-shadow:0 10px 28px rgba(0,0,0,0.55)}
   header nav .nav-a{padding:9px 12px !important;font-size:13px !important;white-space:nowrap}
+  /* contact boxes: long address shrinks instead of running out of the box */
+  .copy-card .copy-val{font-size:clamp(15px, 5.2vw, 22px) !important;overflow-wrap:anywhere}
   /* the phone header is short, so its fade covers more solidly (scrolling text doesn't show behind the logo) */
   .pg.tone-dark header{background:linear-gradient(180deg, rgb(2,2,3) 0%, rgba(2,2,3,0.97) 58%, rgba(2,2,3,0) 100%) !important}
   header .btn{padding:9px 14px !important;font-size:13px !important}
@@ -330,6 +347,20 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   /* 신청 양식: phones keep the shorter label column so the notes don't wrap into a narrow strip */
   #apply div[style*="min-width: 104px"]{min-width:76px !important}
 }
+/* very narrow phones: tighter floating menu so all five items fit */
+@media (max-width: 370px){
+  header nav .nav-a{padding:8px 8px !important;font-size:12px !important}
+}
+/* ---- performance on phones / touch tablets (looks the same, much less work per scrolled frame) ---- */
+@media (max-width: 760px), (hover: none) and (pointer: coarse){
+  /* the film-grain overlay blends with the whole screen on every frame; on small screens it is invisible anyway */
+  .pg.tone-dark::after{display:none !important}
+  /* the sticky hero player blurred what is behind it (an already blurred glow) on every scroll frame */
+  #top [style*="backdrop-filter: blur(18px)"]{-webkit-backdrop-filter:none !important;backdrop-filter:none !important}
+  /* the big blurred beam behind the hero is drawn once and kept as an image */
+  #top [style*="filter: blur(46px)"]{will-change:transform}
+}
+
 
 /* 첫 화면 인트로 (사진 1초 → 서서히 사라짐) */
 #intro{position:fixed;inset:0;z-index:2147483000;background:#0a0504 url(assets/intro.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease;touch-action:none}
