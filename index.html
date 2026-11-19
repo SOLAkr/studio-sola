@@ -323,6 +323,8 @@ html.seen-intro #intro{display:none}
 #scroll-hint .sh-chev svg:nth-child(2){animation-delay:.62s}
 @keyframes shChev{0%,45%,100%{opacity:.18}14%{opacity:1}}
 @keyframes shWheelLight{0%{background-position:0 100%}38%,100%{background-position:0 0}}
+/* 실제 사이트: 컴퓨터는 마우스 아이콘만, 폰은 폰 아이콘만 (둘 다 나오는 건 디자인 미리보기에서만) */
+@media (hover:hover){#scroll-hint .sh-phone{display:none}}
 @media (hover:none){#scroll-hint{padding:18px 22px}#scroll-hint .sh-mouse,#scroll-hint .sh-chev{display:none}#scroll-hint .sh-phone{width:26px;height:41px;border-width:2px;border-radius:6px;opacity:1}#scroll-hint .sh-phone::before{top:3px;width:7px;height:2px;margin-left:-3.5px}#scroll-hint .sh-phone::after{bottom:6px;width:7px;height:7px;margin-left:-3.5px;--sw:-17px}}
 @keyframes shSwipe{0%{transform:translateY(0);opacity:0}15%{opacity:1}70%{transform:translateY(var(--sw,-17px));opacity:1}100%{transform:translateY(var(--sw,-17px));opacity:0}}
 @media (prefers-reduced-motion:reduce){#scroll-hint .sh-chev svg,#scroll-hint .sh-mouse::after,#scroll-hint .sh-phone::after{animation:none;opacity:1}}
