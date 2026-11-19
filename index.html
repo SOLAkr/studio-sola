@@ -83,7 +83,7 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 .reveal-line.l1{opacity:var(--r1,1);transform:translateY(calc((1 - var(--r1,1)) * 48px))}
 .reveal-line.l2{opacity:var(--r2,1);transform:translateY(calc((1 - var(--r2,1)) * 48px))}
 .price-card{transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s}
-.price-card:hover{background:linear-gradient(180deg, #141734, #0A0C18) padding-box, linear-gradient(160deg, #A9B3FF, rgba(143,155,255,0.15) 55%, rgba(61,214,224,0.5)) border-box !important;border-color:transparent !important;box-shadow:0 0 40px rgba(74,87,240,0.17) !important;transform:scale(1.03)}
+.price-card:hover{background:linear-gradient(180deg, #141734, #0A0C18) padding-box, linear-gradient(160deg, #A9B3FF, rgba(143,155,255,0.15) 55%, rgba(61,214,224,0.5)) border-box !important;border-color:transparent !important;box-shadow:0 0 22px rgba(74,87,240,0.17) !important;transform:scale(1.03)}
 .rf-card{opacity:0;transform:translateX(-28px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
 .rf-in .rf-card{opacity:1;transform:none}
 .rf-in .rf-card:nth-child(2){transition-delay:.15s}
@@ -179,6 +179,45 @@ a.vid-tile:focus-visible{outline:2px solid #6898FF;outline-offset:4px}
 .ch-overlay.pv .ch-panel{max-height:none !important;overflow:visible !important}
 @media (prefers-reduced-motion: reduce){.ch-overlay,.ch-panel{animation:none}}
 #sola-intro.out{opacity:0}
+/* 창 크기가 바뀌어도 한 줄에 하나만 덩그러니 남지 않게 고르게 다시 배치 (데스크톱 761px 이상, 폰은 따로) */
+@media (min-width: 761px){
+  .pf-ch:not(:has(> :nth-child(7))){grid-template-columns:repeat(6,minmax(0,1fr)) !important}
+  .pf-cat:not(:has(> :nth-child(5))){grid-template-columns:repeat(4,minmax(0,1fr)) !important}
+  .tool-grid{grid-template-columns:repeat(6,minmax(0,1fr)) !important}
+}
+@media (min-width: 1000px){
+  .rf-grid{grid-template-columns:repeat(4,minmax(0,1fr)) !important}
+}
+@media (min-width: 1200px){
+  .price-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+}
+@media (min-width: 761px) and (max-width: 1199px){
+  .pf-ch:not(:has(> :nth-child(7))){grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+  .tool-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+  .price-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .price-grid > :nth-child(3){grid-column:1 / -1}
+}
+@media (min-width: 761px) and (max-width: 999px){
+  .pf-cat:not(:has(> :nth-child(5))){grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .rf-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+/* 첫 화면 스크롤 안내 */
+#sola-hint{position:fixed;left:50%;top:50%;z-index:9000;display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px 22px 14px;border-radius:20px;background:rgba(6,7,13,.58);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 50px rgba(0,0,0,.45);opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-50%) translateY(10px);transition:opacity .45s ease,transform .45s ease,visibility 0s linear .45s}
+#sola-hint.on{opacity:1;visibility:visible;transform:translate(-50%,-50%);transition:opacity .45s ease,transform .45s ease,visibility 0s}
+#sola-hint .sh-icons{display:flex;align-items:flex-end;gap:12px}
+#sola-hint .sh-mouse{width:26px;height:40px;box-sizing:border-box;border:2px solid rgba(255,255,255,.88);border-radius:14px;position:relative}
+#sola-hint .sh-mouse::after{content:'';position:absolute;left:50%;top:6px;width:3px;height:10px;margin-left:-1.5px;border-radius:2px;background:linear-gradient(to bottom,rgba(255,255,255,.22) 0%,rgba(255,255,255,.22) 30%,#FFFFFF 45%,#B9CCFF 55%,rgba(255,255,255,.22) 70%,rgba(255,255,255,.22) 100%);background-size:100% 320%;background-position:0 100%;animation:shWheelLight 1.8s ease-in infinite}
+#sola-hint .sh-phone{width:17px;height:27px;box-sizing:border-box;border:1.6px solid rgba(255,255,255,.85);border-radius:4px;position:relative;opacity:.85}
+#sola-hint .sh-phone::before{content:'';position:absolute;left:50%;top:2px;width:5px;height:1.4px;margin-left:-2.5px;border-radius:1px;background:rgba(255,255,255,.55)}
+#sola-hint .sh-phone::after{content:'';position:absolute;left:50%;bottom:3px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#FFFFFF;animation:shSwipe 1.8s ease-in-out infinite;--sw:-11px}
+#sola-hint .sh-chev{display:flex;flex-direction:column;align-items:center;gap:0}
+#sola-hint .sh-chev svg{display:block;margin-top:-3px;opacity:.18;animation:shChev 1.8s ease-in-out infinite;animation-delay:.42s}
+#sola-hint .sh-chev svg:nth-child(2){animation-delay:.62s}
+@keyframes shChev{0%,45%,100%{opacity:.18}14%{opacity:1}}
+@keyframes shWheelLight{0%{background-position:0 100%}38%,100%{background-position:0 0}}
+@media (hover:none){#sola-hint{padding:18px 22px}#sola-hint .sh-mouse,#sola-hint .sh-chev{display:none}#sola-hint .sh-phone{width:26px;height:41px;border-width:2px;border-radius:6px;opacity:1}#sola-hint .sh-phone::before{top:3px;width:7px;height:2px;margin-left:-3.5px}#sola-hint .sh-phone::after{bottom:6px;width:7px;height:7px;margin-left:-3.5px;--sw:-17px}}
+@keyframes shSwipe{0%{transform:translateY(0);opacity:0}15%{opacity:1}70%{transform:translateY(var(--sw,-17px));opacity:1}100%{transform:translateY(var(--sw,-17px));opacity:0}}
+@media (prefers-reduced-motion:reduce){#sola-hint .sh-chev svg,#sola-hint .sh-mouse::after,#sola-hint .sh-phone::after{animation:none;opacity:1}}
 /* 팝업 스크롤바: 팝업 색에 맞춘 어두운 톤 */
 .ch-panel{scrollbar-width:thin;scrollbar-color:#2A3042 transparent}
 .ch-panel::-webkit-scrollbar{width:10px}
@@ -236,9 +275,17 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   .vid-box{padding:10px !important}
   /* pricing cards: let them size to their content */
   .price-card{height:auto !important}
-  /* process timeline: keep its proportions and scroll sideways */
-  div:has(> [style*="grid-template-columns: 44px repeat(7"]){overflow-x:auto;-webkit-overflow-scrolling:touch}
-  [style*="grid-template-columns: 44px repeat(7"]{min-width:640px}
+  /* process timeline: a compact phone layout (480px) scaled to the screen width (see index.html), so it all shows at once */
+  div:has(> div > [style*="grid-template-columns: 44px repeat(7"]){overflow:hidden}
+  div:has(> [style*="grid-template-columns: 44px repeat(7"]){min-width:0 !important;width:480px;padding:14px 12px 16px !important;transform-origin:0 0}
+  [style*="grid-template-columns: 44px repeat(7"]{min-width:0 !important;grid-template-columns:24px repeat(7, minmax(0, 1fr)) !important;counter-reset:tlstep}
+  [style*="grid-template-columns: 44px repeat(7"] .tl-clip{width:calc(100% / 7 + 1px) !important;padding:0 7px !important;border-radius:8px !important}
+  [style*="grid-template-columns: 44px repeat(7"] .tl-clip *{font-size:14px !important;line-height:1.15 !important;white-space:normal !important;word-break:keep-all}
+  [style*="grid-template-columns: 44px repeat(7"] .tl-ruler{counter-increment:tlstep}
+  [style*="grid-template-columns: 44px repeat(7"] .tl-ruler > div:first-child{font-size:0 !important;padding-left:5px !important}
+  [style*="grid-template-columns: 44px repeat(7"] .tl-ruler > div:first-child::after{content:counter(tlstep, decimal-leading-zero);font-size:12px}
+  [style*="grid-template-columns: 44px repeat(7"] .tl-ruler > div:nth-child(2){background-size:calc(100% / 4) 100% !important}
+  [style*="grid-template-columns: 44px repeat(7"] > div[style*="grid-column: 1;"]{font-size:11px !important}
   .seq-title{font-size:48px !important}
 }
 
@@ -247,9 +294,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (max-width: 760px){
   .ch-panel{max-height:92dvh !important}
 }
-/* tablets, landscape phones and narrow windows (761–1149px): sections grow with their content
-   instead of overlapping the next one (wide desktop ≥1150px is untouched) */
-@media (min-width: 761px) and (max-width: 1149px){
+/* tablets, landscape phones and narrow windows (761–1199px): sections grow with their content
+   instead of overlapping the next one (wide desktop ≥1200px is untouched) */
+@media (min-width: 761px) and (max-width: 1199px){
   section[data-rv]{height:auto !important}
   .price-card{height:auto !important}
 }
@@ -262,16 +309,34 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 #intro{position:fixed;inset:0;z-index:2147483000;background:#0a0504 url(assets/intro.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease;touch-action:none}
 #intro.out{opacity:0}
 html.seen-intro #intro{display:none}
+/* 첫 화면 스크롤 안내: 1.5초 동안 아무것도 안 하면 화면 가운데에 */
+#scroll-hint{position:fixed;left:50%;top:50%;z-index:9000;display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px 22px 14px;border-radius:20px;background:rgba(6,7,13,.58);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 50px rgba(0,0,0,.45);opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-50%) translateY(10px);transition:opacity .45s ease,transform .45s ease,visibility 0s linear .45s}
+#scroll-hint.on{opacity:1;visibility:visible;transform:translate(-50%,-50%);transition:opacity .45s ease,transform .45s ease,visibility 0s}
+#scroll-hint .sh-icons{display:flex;align-items:flex-end;gap:12px}
+#scroll-hint .sh-mouse{width:26px;height:40px;box-sizing:border-box;border:2px solid rgba(255,255,255,.88);border-radius:14px;position:relative}
+#scroll-hint .sh-mouse::after{content:'';position:absolute;left:50%;top:6px;width:3px;height:10px;margin-left:-1.5px;border-radius:2px;background:linear-gradient(to bottom,rgba(255,255,255,.22) 0%,rgba(255,255,255,.22) 30%,#FFFFFF 45%,#B9CCFF 55%,rgba(255,255,255,.22) 70%,rgba(255,255,255,.22) 100%);background-size:100% 320%;background-position:0 100%;animation:shWheelLight 1.8s ease-in infinite}
+#scroll-hint .sh-phone{width:17px;height:27px;box-sizing:border-box;border:1.6px solid rgba(255,255,255,.85);border-radius:4px;position:relative;opacity:.85}
+#scroll-hint .sh-phone::before{content:'';position:absolute;left:50%;top:2px;width:5px;height:1.4px;margin-left:-2.5px;border-radius:1px;background:rgba(255,255,255,.55)}
+#scroll-hint .sh-phone::after{content:'';position:absolute;left:50%;bottom:3px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#FFFFFF;animation:shSwipe 1.8s ease-in-out infinite;--sw:-11px}
+#scroll-hint .sh-chev{display:flex;flex-direction:column;align-items:center;gap:0}
+#scroll-hint .sh-chev svg{display:block;margin-top:-3px;opacity:.18;animation:shChev 1.8s ease-in-out infinite;animation-delay:.42s}
+#scroll-hint .sh-chev svg:nth-child(2){animation-delay:.62s}
+@keyframes shChev{0%,45%,100%{opacity:.18}14%{opacity:1}}
+@keyframes shWheelLight{0%{background-position:0 100%}38%,100%{background-position:0 0}}
+@media (hover:none){#scroll-hint{padding:18px 22px}#scroll-hint .sh-mouse,#scroll-hint .sh-chev{display:none}#scroll-hint .sh-phone{width:26px;height:41px;border-width:2px;border-radius:6px;opacity:1}#scroll-hint .sh-phone::before{top:3px;width:7px;height:2px;margin-left:-3.5px}#scroll-hint .sh-phone::after{bottom:6px;width:7px;height:7px;margin-left:-3.5px;--sw:-17px}}
+@keyframes shSwipe{0%{transform:translateY(0);opacity:0}15%{opacity:1}70%{transform:translateY(var(--sw,-17px));opacity:1}100%{transform:translateY(var(--sw,-17px));opacity:0}}
+@media (prefers-reduced-motion:reduce){#scroll-hint .sh-chev svg,#scroll-hint .sh-mouse::after,#scroll-hint .sh-phone::after{animation:none;opacity:1}}
 </style>
 </head>
 <body>
 <div id="intro" aria-hidden="true"></div>
 <script>
-// 인트로: 사진이 뜬 뒤 1초 유지 → 0.6초 동안 서서히 투명해지며 사라짐. 떠 있는 동안 스크롤 막기.
+// 인트로: 사진이 뜬 뒤 0.6초 유지 → 0.6초 동안 서서히 투명해지며 사라짐. 떠 있는 동안 스크롤 막기.
 (function(){
   var el=document.getElementById('intro'); if(!el) return;
   if(/(^| )seen-intro( |$)/.test(document.documentElement.className)){ el.parentNode.removeChild(el); return; }
   try{ sessionStorage.setItem('sola-intro','1'); }catch(e){}
+  window.__solaIntroOn=true;
   var KEYS={32:1,33:1,34:1,35:1,36:1,37:1,38:1,39:1,40:1};
   var lockY=null, done=false;
   function stop(e){ if(!done){ e.preventDefault(); e.stopPropagation(); } }
@@ -279,15 +344,56 @@ html.seen-intro #intro{display:none}
   function hold(){ if(done) return; if(lockY===null){ lockY=window.scrollY; return; } if(window.scrollY!==lockY) window.scrollTo(0,lockY); }
   var opt={passive:false,capture:true};
   window.addEventListener('wheel',stop,opt); window.addEventListener('touchmove',stop,opt); window.addEventListener('keydown',key,true); window.addEventListener('scroll',hold,true);
-  function release(){ done=true; window.removeEventListener('wheel',stop,opt); window.removeEventListener('touchmove',stop,opt); window.removeEventListener('keydown',key,true); window.removeEventListener('scroll',hold,true); if(el.parentNode) el.parentNode.removeChild(el); }
+  function release(){ done=true; window.removeEventListener('wheel',stop,opt); window.removeEventListener('touchmove',stop,opt); window.removeEventListener('keydown',key,true); window.removeEventListener('scroll',hold,true); if(el.parentNode) el.parentNode.removeChild(el); window.__solaIntroOn=false; try{ window.dispatchEvent(new Event('sola-intro-done')); }catch(e){} }
   var started=false;
-  function start(){ if(started) return; started=true; setTimeout(function(){ el.classList.add('out'); setTimeout(release,650); },1000); }
+  function start(){ if(started) return; started=true; setTimeout(function(){ el.classList.add('out'); setTimeout(release,650); },600); }
   var img=new Image(); img.onload=start; img.onerror=start; img.src='assets/intro.jpg';
   if(img.complete) start();
   setTimeout(start,2500); // 사진이 늦게 오면 그래도 넘어가기
 })();
 </script>
+<div id="scroll-hint" aria-hidden="true"><div class="sh-icons"><div class="sh-mouse"></div><div class="sh-phone"></div></div><div class="sh-chev"><svg width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M2 2l6 5 6-5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M2 2l6 5 6-5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+<script>
+// 스크롤 안내: 첫 화면(맨 위)에서 1.5초 동안 스크롤 조작이 없으면 가운데에 아이콘 표시. 휠·스와이프·스크롤 키로만 사라지고(클릭·탭은 그대로), 한 번 사라지면 새로고침 전까지 다시 안 뜸.
+// 한 번 화면을 내리고 나면 더 이상 뜨지 않음.
+(function(){
+  var el=document.getElementById('scroll-hint'); if(!el) return;
+  var IDLE=1500, TOP=40, timer=0, finished=false;
+  function hide(){ el.classList.remove('on'); }
+  function arm(){ clearTimeout(timer); if(finished || window.__solaIntroOn) return; timer=setTimeout(function(){ if(!finished && !window.__solaIntroOn && window.scrollY<TOP) el.classList.add('on'); },IDLE); }
+  var KEYS={32:1,33:1,34:1,35:1,36:1,38:1,40:1};
+  function finish(){ finished=true; clearTimeout(timer); hide(); ['wheel','touchmove','keydown'].forEach(function(n){ window.removeEventListener(n,act,true); }); window.removeEventListener('scroll',onScroll,true); }
+  // 한 번 사라지면 새로고침 전까지 다시 안 뜸. 뜨기 전의 조작은 기다리는 시간만 다시 셈
+  function act(e){ if(e && e.type==='keydown' && !KEYS[e.keyCode]) return; if(el.classList.contains('on')){ finish(); return; } arm(); }
+  function onScroll(){ if(window.scrollY>=TOP){ finish(); } else act(); }
+  ['wheel','touchmove','keydown'].forEach(function(n){ window.addEventListener(n,act,{capture:true,passive:true}); });
+  window.addEventListener('scroll',onScroll,{capture:true,passive:true});
+  window.addEventListener('sola-intro-done',arm);
+  if(window.scrollY>=TOP) finish(); else arm();
+})();
+</script>
 <div id="root"></div>
+<script>
+// 작업 순서 타임라인이 화면보다 넓으면 폭에 맞게 줄여서 한눈에 다 보이게 (폰은 480px 작은 레이아웃 기준)
+(function(){
+  var mq=window.matchMedia?matchMedia('(max-width: 760px)'):null;
+  function fit(){
+    var g=document.querySelector('[style*="grid-template-columns: 44px repeat(7"]'); if(!g) return false;
+    var box=g.parentElement, sc=box&&box.parentElement; if(!sc) return false;
+    var w=sc.clientWidth; if(!w) return true;
+    var base=(mq&&mq.matches)?480:960;   // 폰: 작은 레이아웃(480px) / 좁은 데스크톱 창: 원래 레이아웃(960px)을 창 폭에 맞게
+    if(w>=base){ box.style.transform=''; box.style.transformOrigin=''; sc.style.height=''; sc.style.overflow=''; return true; }
+    var s=w/base; box.style.transformOrigin='0 0'; sc.style.overflow='hidden';
+    box.style.transform='scale('+s+')';
+    sc.style.height=Math.ceil(box.offsetHeight*s)+'px';
+    return true;
+  }
+  var tries=0; (function wait(){ if(!fit() && tries++<200) setTimeout(wait,100); })();
+  window.addEventListener('resize',fit); window.addEventListener('orientationchange',function(){ setTimeout(fit,200); });
+  if(mq&&mq.addEventListener) mq.addEventListener('change',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
 <script src="data/portfolio.js"></script>
 <script src="app.js" defer></script>
