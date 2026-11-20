@@ -123,6 +123,19 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 .pf-fields > div{padding-right:32px}
 .pf-chip{height:38px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);color:#B7BCCC;font-family:Pretendard,sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .08s,border-color .08s,color .08s}
 .pf-chip:hover{background:rgba(104,152,255,0.16);border-color:rgba(110,180,255,0.6);color:#FFFFFF}
+/* desktop: the summary line's letters start level with the top of the "가격" letters and the button ends level with
+   their bottom (the offsets follow the heading's size, which scales with the window) */
+@media (min-width: 1200px){
+  .price-head{align-items:stretch !important}
+  .price-terms{justify-content:space-between !important;gap:0 !important;box-sizing:border-box;
+    padding-top:calc(clamp(30px, 4.2vw, 56px) * 0.09 - 2.4px);padding-bottom:calc(clamp(30px, 4.2vw, 56px) * 0.12 - 1px)}
+  .price-terms p{line-height:1.3 !important}
+  .price-terms .terms-btn{padding-top:7px !important;padding-bottom:7px !important}
+}
+/* the summary line ends a little inside the button's right end: the pill's rounded end reads as further in than its box */
+@media (min-width: 761px){.price-terms p{padding-right:4px}}
+.terms-btn{transition:background .25s, border-color .25s, color .25s}
+.terms-btn:hover,.terms-btn:focus-visible{background:rgba(104,152,255,0.16) !important;border-color:rgba(110,180,255,0.6) !important;color:#FFFFFF !important}
 .pf-chip.on{background:linear-gradient(180deg, rgba(92,105,255,0.62), rgba(74,87,240,0.48));border-color:rgba(138,150,255,0.75);color:#FFFFFF;box-shadow:0 4px 14px rgba(74,87,240,0.22)}
 .pf-chip:focus-visible{outline:2px solid #6898FF;outline-offset:2px}
 [data-pf="chat"] .ch-card:not([data-tags~="chat"]),[data-pf="game"] .ch-card:not([data-tags~="game"]),[data-pf="mv"] .ch-card:not([data-tags~="mv"]){display:none !important}
@@ -317,6 +330,7 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   .vid-box{padding:10px !important}
   /* pricing notes: on desktop they sit right-aligned beside the heading; on phones they go under it, left-aligned */
   #pricing p[style*="text-align: end"]{text-align:left !important;width:100% !important;max-width:none !important;font-size:13.5px !important}
+  #pricing .price-terms{align-items:flex-start !important;width:100%;gap:10px !important}
   /* pricing cards: let them size to their content */
   .price-card{height:auto !important}
   /* process timeline: a compact phone layout (480px) scaled to the screen width (see index.html), so it all shows at once */
@@ -465,8 +479,8 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js?v=755c969fbc"></script>
-<script src="app.js?v=755c969fbc" defer></script>
+<script src="data/portfolio.js?v=f8d31b4399"></script>
+<script src="app.js?v=f8d31b4399" defer></script>
 <script>
 /* Phone browsers with a forced dark mode (Samsung Internet and others) recolour text and dim images, and a page cannot
    opt out of it. On Android the contact headline words and the logos are therefore drawn on <canvas>, which those dark
