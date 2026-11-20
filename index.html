@@ -142,18 +142,13 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 @media (prefers-reduced-motion: reduce){.sec-rv .ct-rise,.sec-rv.in .ct-rise{opacity:1;animation:none}}
 /* the contact section skips the dim-veil / drag-and-drop reveal; it only uses the in-view state to (re)play the rise */
 #contact.sec-rv::before,#contact .rv-drag{display:none}
-/* contact headline fits any screen: below 1200px wide the PERFECT / VIDEO pair shrinks as one piece (--ctk, set by ctFit),
-   the logo / line offsets shrink with it while their own size stays readable; on phones they sit above / below the words */
-.ct-head h2{zoom:var(--ctk, 1)}
+/* contact headline fits any screen: below 1200px wide the whole desktop composition (words, logo, line, their offsets)
+   shrinks as one piece (--ctk, set by ctFit), so layout and overlap stay exactly as designed; only the line keeps a
+   minimum readable size (--ctz) */
+.ct-head{zoom:var(--ctk, 1)}
 /* the words are painted as a fill clipped to the letters (same colour as their "color"), so phone browsers that
    auto-darken pages don't flip these dark letters to white; their shadow is a drop-shadow for the same reason */
 .ct-head h2{background-image:linear-gradient(currentColor, currentColor);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@media (max-width: 760px){
-  .ct-head .ct-ov{position:static !important;transform:none !important}
-  .ct-head .ct-logo{order:-1;margin-bottom:18px}
-  .ct-head .ct-logo img{width:72px !important;height:auto !important}
-  .ct-head .ct-tag{margin-top:16px;font-size:15px !important;white-space:normal !important;text-align:center}
-}
 /* performance: looping motions stand still while their section is off screen (class set by animWatch) */
 .anim-off .marquee-track,.anim-off .ring-svg rect,.anim-off .tl-ghost,.anim-off .tl-handwrap,.anim-off .tl-hand{animation-play-state:paused !important}
 /* phones: no blue tap box on buttons / links */
@@ -468,7 +463,86 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js?v=8da87fbe34"></script>
-<script src="app.js?v=8da87fbe34" defer></script>
+<script src="data/portfolio.js?v=14752c4eef"></script>
+<script src="app.js?v=14752c4eef" defer></script>
+<script>
+/* Phone browsers with a forced dark mode (Samsung Internet and others) recolour text and dim images, and a page cannot
+   opt out of it. On Android the contact headline words and the logos are therefore drawn on <canvas>, which those dark
+   modes leave untouched, so they keep the desktop colours. Everything else (layout, motion) stays the real page. */
+(function () {
+  if (!/Android/i.test(navigator.userAgent) || !window.HTMLCanvasElement) return;
+  var css = document.createElement('style');
+  css.textContent = '.cv-on{-webkit-text-fill-color:transparent !important;background-image:none !important}' +
+    '.cv-paint{position:absolute;pointer-events:none}.cv-img{visibility:hidden !important}';
+  document.head.appendChild(css);
+  var dpr = function () { return Math.min(3, window.devicePixelRatio || 1); };
+  function canvasFor(host, key) {
+    var c = host.querySelector(':scope > canvas.cv-paint[data-k="' + key + '"]');
+    if (!c) { c = document.createElement('canvas'); c.className = 'cv-paint'; c.setAttribute('data-k', key); c.setAttribute('aria-hidden', 'true'); host.appendChild(c); }
+    return c;
+  }
+  function size(c, r) {
+    var d = dpr(), W = Math.max(1, Math.round(r.width * d)), H = Math.max(1, Math.round(r.height * d));
+    if (c.width !== W) c.width = W; if (c.height !== H) c.height = H;
+    var ctx = c.getContext('2d'); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H); return ctx;
+  }
+  function paintWord(h) {
+    var t = null; for (var n = h.firstChild; n; n = n.nextSibling) if (n.nodeType === 3 && n.textContent.trim()) { t = n; break; }
+    if (!t) return;
+    var c = canvasFor(h, 'w'); c.style.cssText = 'left:0;top:0;width:100%;height:100%';
+    var rg = document.createRange(); rg.selectNodeContents(t);
+    var tr = rg.getBoundingClientRect(), cr = c.getBoundingClientRect();
+    if (!tr.width || !cr.width) return;
+    var cs = getComputedStyle(h), ctx = size(c, cr), d = dpr();
+    var fs = parseFloat(cs.fontSize) || 100, ls = parseFloat(cs.letterSpacing) || 0;
+    ctx.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + fs + 'px ' + cs.fontFamily;
+    var chars = Array.from(t.textContent.trim()), ws = chars.map(function (ch) { return ctx.measureText(ch).width; });
+    var total = ws.reduce(function (a, b) { return a + b; }, 0) + ls * chars.length;
+    var m = ctx.measureText(chars.join('')), asc = m.fontBoundingBoxAscent, desc = m.fontBoundingBoxDescent;
+    if (!asc) { asc = fs * 0.8; desc = fs * 0.2; }
+    ctx.setTransform(tr.width * d / total, 0, 0, tr.height * d / (asc + desc), (tr.left - cr.left) * d, (tr.top - cr.top) * d);
+    ctx.fillStyle = cs.color;
+    var x = 0; chars.forEach(function (ch, i) { ctx.fillText(ch, x, asc); x += ws[i] + ls; });
+    h.classList.add('cv-on');
+  }
+  function paintImg(img) {
+    if (!img.complete || !img.naturalWidth) { img.addEventListener('load', function () { paintImg(img); }, { once: true }); return; }
+    var host = img.parentElement; if (!host) return;
+    if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+    var c = canvasFor(host, 'i' + Array.prototype.indexOf.call(host.children, img));
+    c.style.cssText = 'left:' + img.offsetLeft + 'px;top:' + img.offsetTop + 'px;width:' + img.offsetWidth + 'px;height:' + img.offsetHeight + 'px';
+    var r = c.getBoundingClientRect(); if (!r.width) return;
+    var ctx = size(c, r); ctx.imageSmoothingQuality = 'high'; ctx.drawImage(img, 0, 0, c.width, c.height);
+    img.classList.add('cv-img');
+  }
+  var raf = 0;
+  function paintAll() {
+    raf = 0;
+    try {
+      document.querySelectorAll('.ct-head h2').forEach(paintWord);
+      document.querySelectorAll('header a[href="#top"] img, .ct-logo img').forEach(paintImg);
+    } catch (e) {
+      document.querySelectorAll('.cv-on').forEach(function (h) { h.classList.remove('cv-on'); });
+      document.querySelectorAll('.cv-img').forEach(function (i) { i.classList.remove('cv-img'); });
+      document.querySelectorAll('canvas.cv-paint').forEach(function (c) { c.remove(); });
+    }
+  }
+  function queue() { if (!raf) raf = requestAnimationFrame(paintAll); }
+  function start() {
+    if (!document.querySelector('.ct-head h2')) { setTimeout(start, 150); return; }
+    queue();
+    window.addEventListener('resize', queue);
+    if (document.fonts) { if (document.fonts.ready) document.fonts.ready.then(queue); if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', queue); }
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(queue);
+      document.querySelectorAll('.ct-head, .ct-head h2, header a[href="#top"]').forEach(function (el) { ro.observe(el); });
+    }
+    if (window.MutationObserver) {   // the fit script changes the headline zoom through a style variable
+      new MutationObserver(queue).observe(document.querySelector('.ct-head'), { attributes: true, attributeFilter: ['style'] });
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+</script>
 </body>
 </html>
