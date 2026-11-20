@@ -163,6 +163,10 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
    shrinks as one piece (--ctk, set by ctFit), so layout and overlap stay exactly as designed; only the line keeps a
    minimum readable size (--ctz) */
 .ct-head{zoom:var(--ctk, 1)}
+/* the PERFECT / VIDEO headline, logo and tagline are artwork: dragging or long-pressing them shouldn't select or drag anything */
+.ct-head,.ct-head *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.ct-head ::selection{background:transparent}
+.ct-head img{-webkit-user-drag:none;user-drag:none}
 /* the words are painted as a fill clipped to the letters (same colour as their "color"), so phone browsers that
    auto-darken pages don't flip these dark letters to white; their shadow is a drop-shadow for the same reason */
 .ct-head h2{background-image:linear-gradient(currentColor, currentColor);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
