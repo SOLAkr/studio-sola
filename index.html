@@ -306,7 +306,7 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   /* main menu: same capsule as desktop, floating at the bottom centre of the screen (thumb reach) */
   header nav{position:fixed !important;left:50%;bottom:calc(14px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);
     flex-wrap:nowrap !important;gap:2px !important;padding:4px !important;max-width:calc(100vw - 20px);box-sizing:border-box;
-    background:rgba(11,12,18,0.95) !important;box-shadow:0 10px 28px rgba(0,0,0,0.55)}
+    background:linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02)),rgba(16,18,28,0.34) !important;-webkit-backdrop-filter:blur(22px) saturate(190%);backdrop-filter:blur(22px) saturate(190%);border-color:rgba(255,255,255,0.2) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 28px rgba(0,0,0,0.4)}
   header nav .nav-a{padding:9px 12px !important;font-size:13px !important;white-space:nowrap}
   /* contact boxes: long address shrinks instead of running out of the box */
   .copy-card .copy-val{font-size:clamp(15px, 5.2vw, 22px) !important;overflow-wrap:anywhere}
@@ -489,8 +489,8 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js?v=16e4e8d39c"></script>
-<script src="app.js?v=16e4e8d39c" defer></script>
+<script src="data/portfolio.js?v=0736ea7ee4"></script>
+<script src="app.js?v=0736ea7ee4" defer></script>
 <script>
 /* Phone browsers with a forced dark mode (Samsung Internet and others) recolour text and dim images, and a page cannot
    opt out of it. On Android the contact headline words and the logos are therefore drawn on <canvas>, which those dark
