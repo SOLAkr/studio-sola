@@ -68,7 +68,7 @@ window.PORTFOLIO = {
       "tags": ["game"],
       "videos": [
         {"url":"https://www.youtube.com/watch?v=kOtsl42SU-0","title":"로블록스 유튜버가 현실에 존재한다면?ㅋㅋㅋㅋ","label":"2026.08.13."},
-        {"url":"https://www.youtube.com/watch?v=BLXTKpnX2yM","title":"여동생이 99일을 하다 울었습니다.. 내 동생은 나만 울릴 수 있다!","label":"2026.05.14"},
+        {"url":"https://www.youtube.com/watch?v=BLXTKpnX2yM","title":"여동생이 99일을 하다 울었습니다.. 내 동생은 나만 울릴 수 있다!","label":"2026.05.14."},
         {"url":"https://www.youtube.com/watch?v=r7bsSj4yeq4","title":"라이벌 여자 vs 남자 싸움의 승자는?","label":"2026.05.24."},
         {"url":"https://www.youtube.com/watch?v=_q6-M-By9qI","title":"로블록스 먹방 ASMR vs 현실 먹방 ASMR","label":"2026.07.16."},
         {"url":"https://www.youtube.com/watch?v=MLcWmUjLnVk","title":"친구 몰래 무선 키보드로 장난쳤더니... 제대로 빡쳤습니다ㅋㅋㅋ","label":"2026.07.30."},
@@ -191,10 +191,7 @@ window.PORTFOLIO = {
 
 /* 아래는 editor.html 의 정보·경력 캡슐·가격표·팝업 탭에서 바꾼 글자와 폰트예요 */
 window.SITE_TEXT = {
-  "texts": {
-    "price.t15": "Music video",
-    "price.t16": "MV • PV"
-  },
+  "texts": {},
   "styles": {},
   "lists": {},
   "career": [
