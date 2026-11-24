@@ -10,7 +10,7 @@
   공통 항목
     name   : 카드/팝업에 보이는 이름
     chips  : 이름 아래 작은 칩. color 는 "blue" | "gray" | "orange"
-    tags   : 필터 버튼 연결. "chat"(저챗) / "game"(게임) / "mv"(MV) 중 여러 개 가능
+    tags   : 필터 버튼 연결. "chat"(저챗) / "game"(게임) / "mv"(MV) / "shorts"(쇼츠) 중 여러 개 가능
     videos : 팝업에 나오는 영상. 맨 위 영상이 대표 영상(크게 표시)
       url   : 유튜브 주소 (watch?v=… / youtu.be/… / shorts/… 모두 가능)
       title : 영상 제목
@@ -23,7 +23,7 @@
 
   categories 전용
     desc  : 카드의 한 줄 설명
-    icon  : "chat" | "game" | "music" | "lock"
+    icon  : "chat" | "game" | "music" | "shorts" | "lock"
     color : 아이콘 타일 색 (예: "#1F5FD6")
   ─────────────────────────────────────────────
   SITE_TEXT (파일 맨 아래) : 정보·경력 캡슐·가격표·팝업의 글자와 폰트를 바꾼 내용
@@ -97,7 +97,7 @@ window.PORTFOLIO = {
       "image": "assets/83a67e54072c1282e26d232a76d100a7.png",
       "chips": [{"text":"고정 편집자","color":"blue"},{"text":"2026 ~","color":"orange"}],
       "link": "https://www.youtube.com/@%ED%98%80%EB%88%84965",
-      "tags": ["game"],
+      "tags": ["game","shorts"],
       "videos": [
         {"url":"https://www.youtube.com/watch?v=KZvxh64NLj8","title":"\"자존심 강한 두 천재의 만남\"","label":"2026.10.18."},
         {"url":"https://www.youtube.com/watch?v=29HgI9NiGkw","title":"내가 왜 니네 관리자야.","label":"2026.08.22."},
@@ -126,7 +126,7 @@ window.PORTFOLIO = {
   "categories": [
     {
       "name": "저챗 외주 작업물",
-      "desc": "저스트 채팅 · 소통 방송 편집",
+      "desc": "저스트 채팅 · 소통",
       "icon": "chat",
       "color": "#1F5FD6",
       "chips": [{"text":"저스트 채팅","color":"blue"},{"text":"외주","color":"gray"}],
@@ -138,7 +138,7 @@ window.PORTFOLIO = {
     },
     {
       "name": "게임 외주 작업물",
-      "desc": "게임 플레이 · 리액션 편집",
+      "desc": "게임 플레이 · 리액션",
       "icon": "game",
       "color": "#5B3FE0",
       "chips": [{"text":"게임","color":"blue"},{"text":"외주","color":"gray"}],
@@ -149,7 +149,7 @@ window.PORTFOLIO = {
     },
     {
       "name": "뮤직비디오 작업물",
-      "desc": "MV · PV · MAD 편집",
+      "desc": "MV · PV · MAD",
       "icon": "music",
       "color": "#0A7285",
       "chips": [{"text":"MV · PV","color":"blue"},{"text":"개인작","color":"gray"}],
@@ -160,8 +160,23 @@ window.PORTFOLIO = {
       ]
     },
     {
+      "name": "숏폼 작업물",
+      "desc": "1분 근처 짧은 영상",
+      "icon": "shorts",
+      "color": "#C2185B",
+      "chips": [{"text":"쇼츠","color":"blue"},{"text":"세로 영상","color":"gray"}],
+      "tags": ["shorts"],
+      "videos": [
+        {"url":"https://www.youtube.com/shorts/wvjBEmFp3vs","title":"이렇게 무서워서 취직 하겠냐?","label":"혀누"},
+        {"url":"https://www.youtube.com/shorts/j96l2DTiiT4","title":"얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며","label":"혀누"},
+        {"url":"https://www.youtube.com/shorts/oDSiJExDgAU","title":"지금까지 로보토미 시리즈를 시청해주신 여러분들 감사드립니다.","label":"혀누"},
+        {"url":"https://www.youtube.com/shorts/5-XB8jOOez8","title":"진짜 한동안 도넛은 못 쳐먹겠네 ㅠㅠㅠㅠㅠㅠㅠㅠ","label":"혀누"},
+        {"url":"https://www.youtube.com/shorts/wECwLRZumKE","title":"아니 환상체 제압용 가스탄 있었으면 나도 백야 잡았지;;;;","label":"혀누"}
+      ]
+    },
+    {
       "name": "일부공개 작업물",
-      "desc": "개인적으로 제작된 영상 (외주X)",
+      "desc": "개인적으로 제작 (외주X)",
       "icon": "lock",
       "color": "#B4430E",
       "chips": [{"text":"개인작","color":"gray"}],
