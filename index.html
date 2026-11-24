@@ -61,23 +61,18 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 .stat-card:hover{border-color:rgba(143,155,255,0.36) !important;background-color:rgba(170,185,255,0.06) !important}
 .stat-num{position:relative;transition:color .3s, text-shadow .3s}
 .stat-card:hover .stat-num{color:rgb(160,170,255) !important;text-shadow:0 0 8px rgba(143,155,255,0.16)}
-/* career numbers roll up like an odometer: the real text stays for layout, the rolling copy sits on top */
+/* career numbers count up: the real text stays for layout, the counting copy sits on top */
 /* the real text stays invisible under the rolling copy, hover included (only its fade-up entrance still animates) */
-.stat-card .stat-num.roll-on,.stat-card:hover .stat-num.roll-on{color:transparent !important;text-shadow:none !important;transition:opacity .45s ease, translate .45s cubic-bezier(.2,.7,.2,1) !important}
+.stat-card .stat-num.roll-on,.stat-card:hover .stat-num.roll-on{color:transparent !important;text-shadow:none !important;transition:opacity .7s ease, translate 1s cubic-bezier(.22,1.25,.36,1) !important}
 .stat-num .roll{position:absolute;left:0;top:0;display:flex;align-items:flex-start;white-space:pre;pointer-events:none;transition:color .3s, text-shadow .3s}
 .stat-card:hover .stat-num .roll{color:rgb(160,170,255) !important;text-shadow:0 0 8px rgba(143,155,255,0.16)}
-/* career boxes: number + label fade up from below once the section has lit up (like the refund cards) */
-.stat-card > span{opacity:0;translate:0 14px;transition:opacity .45s ease, translate .45s cubic-bezier(.2,.7,.2,1)}
-.st-in .stat-card > span{opacity:1;translate:0 0}
-.st-in .stat-card > span:nth-child(2){transition-delay:.05s}
-.st-in .stat-card:nth-child(2) > span:nth-child(1){transition-delay:.07s}
-.st-in .stat-card:nth-child(2) > span:nth-child(2){transition-delay:.12s}
-.st-in .stat-card:nth-child(3) > span:nth-child(1){transition-delay:.14s}
-.st-in .stat-card:nth-child(3) > span:nth-child(2){transition-delay:.19s}
-.dc-edit .stat-card > span{opacity:1 !important;translate:0 0 !important;transition:none !important}
-@media (prefers-reduced-motion: reduce){.stat-card > span{opacity:1;translate:0 0;transition:none}}
-.stat-num .roll-col{display:block;flex:none;clip-path:inset(0 -40% 0 -40%)}
-.stat-num .roll-strip{display:flex;flex-direction:column;align-items:center}
+/* career boxes: the labels just sit there; only the numbers drop in from above once the section has lit up */
+.stat-card > .stat-num{opacity:0;translate:0 -34px;transition:opacity .7s ease, translate 1s cubic-bezier(.22,1.25,.36,1)}
+.st-in .stat-card > .stat-num{opacity:1;translate:0 0}
+.st-in .stat-card:nth-child(2) > .stat-num{transition-delay:.1s}
+.st-in .stat-card:nth-child(3) > .stat-num{transition-delay:.2s}
+.dc-edit .stat-card > .stat-num{opacity:1 !important;translate:0 0 !important;transition:none !important}
+@media (prefers-reduced-motion: reduce){.stat-card > .stat-num{opacity:1;translate:0 0;transition:none}}
 .f-in{width:100%;box-sizing:border-box;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:13px 16px;color:#ECEEF6;font-family:inherit;font-size:15px;min-height:48px;color-scheme:dark}
 .f-in:focus{outline:none;border-color:#8F9BFF;box-shadow:0 0 0 3px rgba(143,155,255,0.2)}
 .f-in::placeholder{color:#7A8096}
@@ -146,17 +141,13 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 .pf-fields > div{padding-right:32px}
 .pf-chip{height:38px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);color:#B7BCCC;font-family:Pretendard,sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .08s,border-color .08s,color .08s}
 .pf-chip:hover{background:rgba(104,152,255,0.16);border-color:rgba(110,180,255,0.6);color:#FFFFFF}
-/* desktop: the summary line's letters start level with the top of the "가격" letters and the button ends level with
-   their bottom (the offsets follow the heading's size, which scales with the window) */
+/* desktop: the summary line sits level with the bottom of the "가격" letters
+   (the offset follows the heading's size, which scales with the window) */
 @media (min-width: 1200px){
   .price-head{align-items:stretch !important}
-  .price-terms{justify-content:space-between !important;gap:0 !important;box-sizing:border-box;
-    padding-top:calc(clamp(30px, 4.2vw, 56px) * 0.09 - 2.4px);padding-bottom:calc(clamp(30px, 4.2vw, 56px) * 0.12 - 1px)}
+  .price-terms{justify-content:flex-end !important;gap:0 !important;box-sizing:border-box;padding-bottom:calc(5.8px - clamp(30px, 4.2vw, 56px) * 0.059)}
   .price-terms p{line-height:1.3 !important}
-  .price-terms .terms-btn{padding-top:7px !important;padding-bottom:7px !important}
 }
-/* the summary line ends a little inside the button's right end: the pill's rounded end reads as further in than its box */
-@media (min-width: 761px){.price-terms p{padding-right:4px}}
 /* option dots: one size everywhere; dotSnap sizes and places them on whole device pixels so every dot renders identically */
 .opt-dot{width:var(--od,4px) !important;height:var(--od,4px) !important;margin-top:calc(9.5px - var(--od,4px) / 2 + var(--ody,0px)) !important;margin-left:var(--odx,0px);margin-right:calc(0px - var(--odx,0px))}
 .terms-btn{transition:background .25s, border-color .25s, color .25s}
@@ -337,6 +328,64 @@ html::-webkit-scrollbar-thumb{background:#2B2D35;border-radius:999px;border:3px 
 html::-webkit-scrollbar-thumb:hover{background:#3A3D4A}
 html::-webkit-scrollbar-button{display:none;height:0}
 html::-webkit-scrollbar-corner{background:#020203}
+/* FAQ: accordion in the same box style as the apply form; the chevron flips when a question opens.
+   The answer height animates with a 0fr → 1fr grid row, so any answer length works. */
+.fq-list{display:flex;flex-direction:column;padding:6px 24px;border-radius:16px;background:rgba(6,7,13,0.7);border:1px solid rgba(255,255,255,0.14)}
+.fq-item{border-top:1px solid rgba(255,255,255,0.07)}
+.fq-item:first-child{border-top:0}
+.fq-q{display:flex;align-items:center;gap:8px;width:100%;padding:20px 0;margin:0;background:none;border:0;color:#ECEEF6;font:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.fq-q:focus-visible{outline:2px solid rgba(143,168,255,0.6);outline-offset:4px;border-radius:8px}
+.fq-n{flex:none;width:18px;font-size:16px;font-weight:600;color:#FF8A45}
+.fq-t{flex:1;min-width:0;font-size:16px;font-weight:600}
+.fq-ic{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,0.14);display:grid;place-items:center;color:#9AA0B4;transition:color .2s ease,border-color .2s ease}
+.fq-ic svg{transition:transform .3s cubic-bezier(.2,.8,.25,1)}
+.fq-q:hover .fq-ic{color:#ECEEF6;border-color:rgba(255,255,255,0.28)}
+.fq-item.fq-open .fq-ic{color:#8FA8FF;border-color:rgba(143,168,255,0.45)}
+.fq-item.fq-open .fq-ic svg{transform:rotate(180deg)}
+.fq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.2,.8,.25,1)}
+.fq-item.fq-open .fq-a{grid-template-rows:1fr}
+.fq-a > div{overflow:hidden;min-height:0}
+.fq-a p{margin:0;padding:0 40px 20px 26px;font-size:15px;font-weight:500;line-height:1.65;color:#AEB3C4}
+@media (max-width: 760px){.fq-list{padding:2px 16px}.fq-q{padding:17px 0;gap:8px}.fq-t{font-size:15px}.fq-a p{padding:0 8px 18px 26px;font-size:14px}}
+@media (prefers-reduced-motion: reduce){.fq-a,.fq-ic svg{transition:none}}
+/* apply form: on PC the form sits beside a filled-in example message; on phones the example is hidden and
+   the form splits into 필수 / 선택 groups (the group labels replace the red stars).
+   Below 1000px the example lines would start wrapping, so narrow windows / tablets get the phone layout too */
+.ap-wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:20px;align-items:stretch}
+.ap-hd{display:none}
+.ap-ex{display:flex;flex-direction:column;gap:12px;padding:20px 24px;border-radius:16px;background:rgba(6,7,13,0.7);border:1px solid rgba(255,255,255,0.14);font-family:Pretendard,sans-serif;min-width:0}
+.ap-ex-hd{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#9AA0B4}
+.ap-ex-hd i,.ap-hd i{flex:none;width:6px;height:6px;border-radius:50%;background:#8FA8FF}
+.ap-msg{display:flex;gap:14px;align-items:flex-start;margin-top:4px}
+.ap-av{flex:none;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4A57F0,#8FA8FF)}
+.ap-mb{display:flex;flex-direction:column;min-width:0}
+.ap-mn{font-size:15px;font-weight:600;color:#ECEEF6;margin-bottom:4px}
+.ap-mn span{font-size:12px;font-weight:400;color:#7A7F8C;margin-left:8px}
+.ap-ml{font-size:14px;line-height:1.75;color:#C9CDDB}
+.ap-ml b{font-weight:600;color:#ECEEF6}
+@media (max-width: 999px){
+  .ap-wrap{display:block}
+  .ap-ex,.apply-note,.apply-list .ap-star{display:none !important}
+  .ap-hd{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#9AA0B4;padding:12px 0 0}
+  .ap-hd-req i{background:#FF8A45}
+  .ap-hd-opt i{background:#5C6275}
+  .ap-hd-opt{margin-top:10px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.08)}
+}
+/* footer: centred intro (logo, one-line description, quick links) over a thin bar with the copyright and a back-to-top link */
+.ft-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 4px;margin-top:4px}
+.ft-nav a,.ft-totop{color:#9AA0B4;text-decoration:none;font-size:13px;font-weight:500;padding:6px 10px;border-radius:999px;transition:color .2s ease,background-color .2s ease}
+.ft-nav a:hover,.ft-nav a:focus-visible,.ft-totop:hover,.ft-totop:focus-visible{color:#ECEEF6;background-color:rgba(255,255,255,0.05)}
+.ft-totop{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;margin-right:-10px}
+@media (max-width: 760px){
+  .site-ft{padding-top:36px !important}
+  .ft-intro{padding-bottom:32px !important}
+  .ft-intro p{font-size:13px !important}
+  .ft-nav{gap:4px 0}
+  .ft-nav a{padding:6px 7px;font-size:12.5px}
+  .ft-bar{flex-direction:column;justify-content:center !important;text-align:center}
+  .ft-meta{flex-wrap:nowrap !important;justify-content:center;gap:8px !important;white-space:nowrap;font-size:min(12px, calc((100vw - 52px) / 24.8)) !important}  /* one line, shrinking a touch on very narrow phones */
+  .ft-totop{margin-right:0}
+}
 
 /* ---- deploy build additions (portfolio player) ---- */
 button.vid-box{transition:background .25s,border-color .25s}
@@ -355,7 +404,7 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   header nav{position:fixed !important;left:50%;bottom:calc(14px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);
     flex-wrap:nowrap !important;gap:2px !important;padding:4px !important;max-width:calc(100vw - 20px);box-sizing:border-box;
     background:linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02)),rgba(16,18,28,0.34) !important;-webkit-backdrop-filter:blur(22px) saturate(190%);backdrop-filter:blur(22px) saturate(190%);border-color:rgba(255,255,255,0.2) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 28px rgba(0,0,0,0.4)}
-  header nav .nav-a{padding:9px 12px !important;font-size:13px !important;white-space:nowrap}
+  header nav .nav-a{padding:9px 10px !important;font-size:13px !important;white-space:nowrap}
   /* contact boxes: long address shrinks instead of running out of the box */
   .copy-card .copy-val{font-size:clamp(15px, 5.2vw, 22px) !important;overflow-wrap:anywhere}
   /* the phone header is short, so its fade covers more solidly (scrolling text doesn't show behind the logo) */
@@ -420,9 +469,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   /* 신청 양식: phones keep the shorter label column so the notes don't wrap into a narrow strip */
   #apply div[style*="min-width: 104px"]{min-width:76px !important}
 }
-/* very narrow phones: tighter floating menu so all five items fit */
+/* very narrow phones: tighter floating menu so all six items fit */
 @media (max-width: 370px){
-  header nav .nav-a{padding:8px 8px !important;font-size:12px !important}
+  header nav .nav-a{padding:8px 6px !important;font-size:12px !important}
 }
 /* ---- performance on phones / touch tablets (looks the same, much less work per scrolled frame) ---- */
 @media (max-width: 760px), (hover: none) and (pointer: coarse){
@@ -537,8 +586,8 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js?v=54a32c0e16"></script>
-<script src="app.js?v=54a32c0e16" defer></script>
+<script src="data/portfolio.js?v=a6c894d5da"></script>
+<script src="app.js?v=a6c894d5da" defer></script>
 <script>
 /* Phone browsers with a forced dark mode (Samsung Internet and others) recolour text and dim images, and a page cannot
    opt out of it. On Android the contact headline words and the logos are therefore drawn on <canvas>, which those dark
