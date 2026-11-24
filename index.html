@@ -63,17 +63,17 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 .stat-card:hover .stat-num{color:rgb(160,170,255) !important;text-shadow:0 0 8px rgba(143,155,255,0.16)}
 /* career numbers roll up like an odometer: the real text stays for layout, the rolling copy sits on top */
 /* the real text stays invisible under the rolling copy, hover included (only its fade-up entrance still animates) */
-.stat-card .stat-num.roll-on,.stat-card:hover .stat-num.roll-on{color:transparent !important;text-shadow:none !important;transition:opacity .7s ease, translate .7s cubic-bezier(.2,.7,.2,1) !important}
+.stat-card .stat-num.roll-on,.stat-card:hover .stat-num.roll-on{color:transparent !important;text-shadow:none !important;transition:opacity .45s ease, translate .45s cubic-bezier(.2,.7,.2,1) !important}
 .stat-num .roll{position:absolute;left:0;top:0;display:flex;align-items:flex-start;white-space:pre;pointer-events:none;transition:color .3s, text-shadow .3s}
 .stat-card:hover .stat-num .roll{color:rgb(160,170,255) !important;text-shadow:0 0 8px rgba(143,155,255,0.16)}
 /* career boxes: number + label fade up from below once the section has lit up (like the refund cards) */
-.stat-card > span{opacity:0;translate:0 14px;transition:opacity .7s ease, translate .7s cubic-bezier(.2,.7,.2,1)}
+.stat-card > span{opacity:0;translate:0 14px;transition:opacity .45s ease, translate .45s cubic-bezier(.2,.7,.2,1)}
 .st-in .stat-card > span{opacity:1;translate:0 0}
-.st-in .stat-card > span:nth-child(2){transition-delay:.08s}
-.st-in .stat-card:nth-child(2) > span:nth-child(1){transition-delay:.12s}
-.st-in .stat-card:nth-child(2) > span:nth-child(2){transition-delay:.2s}
-.st-in .stat-card:nth-child(3) > span:nth-child(1){transition-delay:.24s}
-.st-in .stat-card:nth-child(3) > span:nth-child(2){transition-delay:.32s}
+.st-in .stat-card > span:nth-child(2){transition-delay:.05s}
+.st-in .stat-card:nth-child(2) > span:nth-child(1){transition-delay:.07s}
+.st-in .stat-card:nth-child(2) > span:nth-child(2){transition-delay:.12s}
+.st-in .stat-card:nth-child(3) > span:nth-child(1){transition-delay:.14s}
+.st-in .stat-card:nth-child(3) > span:nth-child(2){transition-delay:.19s}
 .dc-edit .stat-card > span{opacity:1 !important;translate:0 0 !important;transition:none !important}
 @media (prefers-reduced-motion: reduce){.stat-card > span{opacity:1;translate:0 0;transition:none}}
 .stat-num .roll-col{display:block;flex:none;clip-path:inset(0 -40% 0 -40%)}
@@ -115,17 +115,17 @@ nav:hover .nav-a.is-active:not(:hover){color:#B7BCCC}
 .price-card::after{outline-color:rgb(61,214,224);filter:drop-shadow(0 0 .6px rgb(61,214,224));-webkit-mask-image:linear-gradient(160deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.28) 100%);mask-image:linear-gradient(160deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.28) 100%)}
 .price-card:hover::before,.price-card:hover::after{opacity:1}
 .price-card:hover{background:linear-gradient(180deg, #10121F, #090A12) border-box !important;border-color:transparent !important;box-shadow:0 0 16px rgba(74,87,240,0.09), 0 12px 28px -12px rgba(0,0,0,0.5) !important;transform:translateY(-4px)}
-.rf-card{opacity:0;transform:translateX(-28px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+.rf-card{opacity:0;transform:translateX(-28px);transition:opacity .45s ease, transform .45s cubic-bezier(.2,.7,.2,1)}
 .rf-in .rf-card{opacity:1;transform:none}
-.rf-in .rf-card:nth-child(2){transition-delay:.15s}
-.rf-in .rf-card:nth-child(3){transition-delay:.3s}
-.rf-in .rf-card:nth-child(4){transition-delay:.45s}
-.rf-bar{transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.rf-in .rf-card:nth-child(2){transition-delay:.08s}
+.rf-in .rf-card:nth-child(3){transition-delay:.16s}
+.rf-in .rf-card:nth-child(4){transition-delay:.24s}
+.rf-bar{transform:scaleX(0);transform-origin:left center;transition:transform .75s cubic-bezier(.2,.7,.2,1)}
 .rf-in .rf-bar{transform:scaleX(1)}
-.rf-in .rf-card:nth-child(1) .rf-bar{transition-delay:.35s}
-.rf-in .rf-card:nth-child(2) .rf-bar{transition-delay:.5s}
-.rf-in .rf-card:nth-child(3) .rf-bar{transition-delay:.65s}
-.rf-in .rf-card:nth-child(4) .rf-bar{transition-delay:.8s}
+.rf-in .rf-card:nth-child(1) .rf-bar{transition-delay:.2s}
+.rf-in .rf-card:nth-child(2) .rf-bar{transition-delay:.28s}
+.rf-in .rf-card:nth-child(3) .rf-bar{transition-delay:.36s}
+.rf-in .rf-card:nth-child(4) .rf-bar{transition-delay:.44s}
 @media (prefers-reduced-motion: reduce){.rf-card,.rf-bar{transition:none}}
 @keyframes tl-sweep{from{left:0}to{left:calc(100% - 2px)}}
 .tl-playhead{cursor:grab}
@@ -537,8 +537,8 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js?v=697d02ecbc"></script>
-<script src="app.js?v=697d02ecbc" defer></script>
+<script src="data/portfolio.js?v=fa766781ed"></script>
+<script src="app.js?v=fa766781ed" defer></script>
 <script>
 /* Phone browsers with a forced dark mode (Samsung Internet and others) recolour text and dim images, and a page cannot
    opt out of it. On Android the contact headline words and the logos are therefore drawn on <canvas>, which those dark
