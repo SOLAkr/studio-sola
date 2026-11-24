@@ -164,14 +164,14 @@ window.PORTFOLIO = {
       "desc": "1분 근처 짧은 영상",
       "icon": "shorts",
       "color": "#C2185B",
-      "chips": [{"text":"쇼츠","color":"blue"},{"text":"세로 영상","color":"gray"}],
+      "chips": [{"text":"쇼츠","color":"blue"}],
       "tags": ["shorts"],
       "videos": [
-        {"url":"https://www.youtube.com/shorts/wvjBEmFp3vs","title":"이렇게 무서워서 취직 하겠냐?","label":"혀누"},
-        {"url":"https://www.youtube.com/shorts/j96l2DTiiT4","title":"얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며","label":"혀누"},
-        {"url":"https://www.youtube.com/shorts/oDSiJExDgAU","title":"지금까지 로보토미 시리즈를 시청해주신 여러분들 감사드립니다.","label":"혀누"},
-        {"url":"https://www.youtube.com/shorts/5-XB8jOOez8","title":"진짜 한동안 도넛은 못 쳐먹겠네 ㅠㅠㅠㅠㅠㅠㅠㅠ","label":"혀누"},
-        {"url":"https://www.youtube.com/shorts/wECwLRZumKE","title":"아니 환상체 제압용 가스탄 있었으면 나도 백야 잡았지;;;;","label":"혀누"}
+        {"url":"https://www.youtube.com/shorts/wECwLRZumKE","title":"아니 환상체 제압용 가스탄 있었으면 나도 백야 잡았지;;;;","label":"2026.09.06."},
+        {"url":"https://www.youtube.com/shorts/wvjBEmFp3vs","title":"이렇게 무서워서 취직 하겠냐?","label":"2026.06.22."},
+        {"url":"https://www.youtube.com/shorts/j96l2DTiiT4","title":"얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며 얘네 좋다며","label":"2026.07.03."},
+        {"url":"https://www.youtube.com/shorts/oDSiJExDgAU","title":"지금까지 로보토미 시리즈를 시청해주신 여러분들 감사드립니다.","label":"2026.07.09."},
+        {"url":"https://www.youtube.com/shorts/5-XB8jOOez8","title":"진짜 한동안 도넛은 못 쳐먹겠네 ㅠㅠㅠㅠㅠㅠㅠㅠ","label":"2026.08.30."}
       ]
     },
     {
