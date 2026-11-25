@@ -409,6 +409,9 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
 .views-dot{animation:views-pulse 1.6s ease-in-out infinite}
 @media (prefers-reduced-motion: reduce){.views-dot{animation:none}}
 
+/* popup channel button: shorter wording on phones */
+.lk-short{display:none}
+
 /* ---- phone layout (only below 760px wide; desktop is untouched) ---- */
 @media (max-width: 760px){
   .pg{word-break:keep-all}
@@ -446,7 +449,9 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   .ch-panel .ch-head{gap:14px !important}
   .ch-panel .ch-head img,.ch-panel .ch-head > div[aria-hidden]{width:56px !important;height:56px !important}
   .ch-panel .ch-head > div:nth-of-type(1) > div:first-child{font-size:21px !important}
-  .ch-panel .ch-link{margin-left:0 !important}
+  .ch-panel .ch-link{margin-left:0 !important;min-height:36px !important;padding:0 14px !important;font-size:13px !important}
+  .ch-panel .lk-long{display:none}
+  .ch-panel .lk-short{display:inline}
   .vid-box{padding:10px !important}
   .vid-box .vid-url{display:none !important}   /* phones: no YouTube address under the other videos */
   /* pricing notes: short now, so keep them beside the heading, right-aligned like desktop */
@@ -601,8 +606,8 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js?v=6a0edfb7ff"></script>
-<script src="app.js?v=6a0edfb7ff" defer></script>
+<script src="data/portfolio.js?v=2da3c40907"></script>
+<script src="app.js?v=2da3c40907" defer></script>
 <script>
 /* Phone browsers with a forced dark mode (Samsung Internet and others) recolour text and dim images, and a page cannot
    opt out of it. On Android the contact headline words and the logos are therefore drawn on <canvas>, which those dark
