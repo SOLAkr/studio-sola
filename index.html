@@ -386,6 +386,10 @@ html::-webkit-scrollbar-corner{background:#020203}
   .ft-meta{flex-wrap:nowrap !important;justify-content:center;gap:8px !important;white-space:nowrap;font-size:min(12px, calc((100vw - 52px) / 24.8)) !important}  /* one line, shrinking a touch on very narrow phones */
   .ft-totop{margin-right:0}
 }
+/* pricing: the longform card is the main line of work — a periwinkle outline, a faint glow and a small "주력" tag */
+.price-badge{position:absolute;top:30px;right:30px;padding:4px 11px;border-radius:999px;border:1px solid rgba(143,155,255,0.45);background:rgba(143,155,255,0.1);color:rgb(178,186,255);font-family:Pretendard,sans-serif;font-size:12px;font-weight:600;line-height:1.2;letter-spacing:0.02em;pointer-events:none}
+/* MV card: "준비 중" never splits over two lines; on the narrowest phones it drops below "기대해주세요!" as a whole */
+@media (max-width: 380px){.mv-line{flex-wrap:wrap;height:auto !important;row-gap:6px}.mv-soon{top:0 !important}}
 
 /* ---- deploy build additions (portfolio player) ---- */
 button.vid-box{transition:background .25s,border-color .25s}
@@ -414,6 +418,7 @@ button.vid-tile:hover .vid-play,.vid-start:hover .vid-play{transform:scale(1.08)
   /* hero timeline ruler: every other timecode so they don't collide */
   #top [style*="line-height: 14px"][style*="white-space: nowrap"] > span:nth-child(even){display:none}
   section[data-rv]{height:auto !important;padding:72px 16px !important}
+  #works{padding-bottom:93px !important}   /* its card grid ends with 21px of its own space: keeps the gap to 가격 the same as the others */
   #contact{padding-bottom:104px !important}   /* room for the floating menu */
   /* track header rows */
   section [style*="gap: 16px"][style*="letter-spacing: 0.08em"]{gap:10px !important;font-size:11px !important}
@@ -586,8 +591,8 @@ html.seen-intro #intro{display:none}
 })();
 </script>
 <noscript><p style="color:#fff;font-family:sans-serif;padding:24px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
-<script src="data/portfolio.js?v=a6c894d5da"></script>
-<script src="app.js?v=a6c894d5da" defer></script>
+<script src="data/portfolio.js?v=f820a5d397"></script>
+<script src="app.js?v=f820a5d397" defer></script>
 <script>
 /* Phone browsers with a forced dark mode (Samsung Internet and others) recolour text and dim images, and a page cannot
    opt out of it. On Android the contact headline words and the logos are therefore drawn on <canvas>, which those dark
